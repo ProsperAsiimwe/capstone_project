@@ -4,8 +4,8 @@ const axios = require('axios');
 const { appConfig } = require('@root/config');
 const { pick } = require('lodash');
 
-const webhookUri =
-  'https://hooks.slack.com/services/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';
+const webhookUri = null;
+
 const institutionCode = appConfig.INSTITUTION_SHORT_CODE;
 
 /**
