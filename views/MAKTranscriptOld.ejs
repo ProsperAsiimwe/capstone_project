@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="<%= studentData.appURL %>/documents/templates/MAK/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="<%= studentData.appURL %>/documents/templates/MAK/css/fonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      body {
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+        font-family: 'NewBaskervilleITCbyBT', 'Times New Roman', sans-serif !important;
+        font-weight: 400;
+        line-height: 1;
+        color: #000 !important;
+        background-image: url('<%= studentData.appURL %>/documents/templates/MAK/0001.jpg');
+        background-repeat: no-repeat;
+        /* background-position: initial; */
+        /* overflow: hidden; */
+        background-size: 100% 100%;
+        height: 100%;
+      }
+
+      ul {
+        padding-left: 6px;
+      }
+
+      ul li {
+        list-style-type: disc !important;
+      }
+
+      .fw-bold, strong {
+        font-family: 'CSCHLBKB', sans-serif !important;
+      }
+
+
+      .font-light {
+        font-family: 'CENSCBK', 'Times New Roman', sans-serif !important;
+      }
+
+      @page 
+      { 
+        size: A4 portrait;
+        margin: 0.6cm; 
+      }
+      .text-capitalize {
+        text-transform: capitalize !important;
+      }
+
+      .header h1 {
+        font-size: 28px !important;
+        font-family: 'CSCHLBKB', sans-serif !important;
+        margin: 0;
+      }
+
+      .header h4 {
+        font-size: 14px !important;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .bg-lighter {
+        background-color: rgba(255, 255, 255, 0.61) !important;
+      }
+
+      .profile-photo {
+        height: 90px;
+        position: absolute;
+        right: 0;
+        top: 1.6rem;
+        margin-right: 0rem;
+      }
+        
+      .logo {
+       max-width: 120px;
+        margin-top: 1.5px;
+      }
+
+      .d-inline {
+        display: inline !important;
+      }
+
+      .page-1 {
+        position: absolute;
+        right: 1em;
+        margin-top: -3em;
+      }
+      
+      .rounded {
+        border-radius: 4px !important;
+      }
+
+      .cu-circle {
+        background-color: rgb(185, 177, 177);
+        border-radius: 2px;
+        padding: 1px 2.5px;
+        text-align: center;
+        position: absolute;
+        font-size: 7px;
+        margin-top: -0.5rem;
+        margin-left: 0.7rem;
+        transform: rotate(90deg);
+      }
+
+      .dot {
+        height: 6px;
+        width: 6px;
+        background-color: #000;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 4px;
+        margin-left: 4px;
+      }
+
+      .bulleting {
+        height: 4px;
+        width: 4px;
+        background-color: #000;
+        border-radius: 50%;
+        display: inline-block;
+        margin-bottom: 2px;
+        margin-right: 4px;
+      }
+
+      .back-preview {
+        margin-top: 2em;
+        border: 3px solid rgb(223, 83, 83);
+        font-size: 9.5px !important;
+      }
+
+      .back-preview .text-md {
+        font-size: 12.5px !important;
+      }
+
+      .text-md {
+        font-size: 13px !important;
+      }
+
+      .border-red {
+        border-top: 3px solid rgb(223, 83, 83);
+      }
+
+      .border-left-red {
+        border-left: 3px solid rgb(223, 83, 83);
+      }
+
+      .border-black {
+        border-bottom: 3px solid #263238;
+      }
+
+      .border-dotted-l {
+        border: 1px dashed #263238;
+      }
+
+      .border-dotted-b {
+        border-bottom: 1px dashed #263238;
+      }
+
+      .back-preview .sub-header {
+        font-size: 12px;
+      }
+
+      .results {
+        font-size: 8px !important;
+      }
+
+      .result-content {
+        border: 3px solid #263238 !important;
+        min-height: 70vh;
+        font-size: 8px !important;
+      }
+
+      .tr-border-title-b {
+        border-bottom: 3px solid #263238 !important;
+        background-color: #CFD8DC !important;
+      }
+
+      .results table th {
+        padding: 3px !important;
+        border-top: 1px solid #000 !important;
+        border-bottom: 1px solid #000 !important;
+      }
+
+      .results table td {
+        padding: 1px;
+        padding-bottom: 2px;
+        line-height: 1;
+        font-weight: normal;
+        font-size: 8px !important;
+      }
+
+      .results .semester {
+        color: #0d6efd;
+        font-weight: normal;
+        font-size: 10px;
+      }
+      .transcript-title {
+        color: #000;
+      }
+
+      .note-text div,
+      .note div {
+        padding: 2px !important;
+        color: #2f3542;
+      }
+      .table-striped > tbody > tr:nth-child(2n + 1) > td,
+      .table-striped > tbody > tr:nth-child(2n + 1) > th {
+        background-color: rgb(239, 245, 253);
+      }
+      .cgpa {
+        color: #ff6600;
+      }
+      .signature {
+        /* position: absolute; */
+        margin-right: 2em;
+        margin-bottom: -1em;
+        /* margin-top: -2em; */
+      }
+      
+      .extra-table tr > td:nth-child(2n) {
+        border-right: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header mb-1">
+      <div class="d-flex align-items-center justify-content-center">
+        <h1 class="mb-0 fs-1 text-end institution-title">MAKERERE</h1>
+        <div>
+          <img
+        src="<%= studentData.appURL %>/documents/templates/MAK/MUK-LOGO.png"
+            class="logo mb-1 mx-2"
+            alt="Logo"
+          />
+        </div>
+        <h1 class="mb-0 fs-1 text-start institution-title">UNIVERSITY</h1>
+      </div>
+
+      <div class="text-center">
+        <img
+          class="profile-photo"
+          src="<%= studentData.avatar %>"
+          alt="Photo"
+        />
+      </div>
+
+      <div class="text-center mb-1">
+        <div class="mb-1">Office of the Academic Registrar, P.O. Box 7062, Kampala, Uganda.</div>
+        <div>
+          <strong>Tel</strong>: +256-414-538130/533332 
+          <span class="dot"></span>
+          <strong>Fax</strong>: +256-414-534125
+          <span class="dot"></span>
+          <strong>E-mail</strong>: ar@acadreg.mak.ac.ug
+          <span class="dot"></span>
+          <strong>Web</strong>: www.ar.mak.ac.ug
+        </div>
+      </div>
+    </div>
+
+      <% studentData.studyYearKeys.forEach((studyYears, index) => { %>
+        <div class="result-content">
+          <div class="tr-border-title-b pt-1 text-center transcript-title bg-light">
+            <h3 class="fw-bold mb-0">Academic Transcript</h3>
+            <h6 class="mb-1 mt-0"><%= studentData.degreeCategory %> Programmes</h6>
+            <div class="page-1 fw-bold">Page 1 of 1</div>
+          </div>
+          
+          <div class="row">
+            <div class="col-4">
+              <table class="table-borderless table table-sm m-0">
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>NAME:</strong> <span class="fw-bold"> <%= studentData.name %></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>REG. No.</strong> <%= studentData.registration_number %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>FACULTY:</strong> <%= studentData.faculty_code %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-4">
+              <table class="table-borderless table table-sm m-0">
+                <tbody>
+                  <tr>
+                    <td width="50%" class="text-end">
+                      <strong>SEX:</strong>
+                    </td>
+                    <td><%= studentData.gender %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-end">
+                      <strong>FIRST REGISTERED:</strong> 
+                    </td>
+                    <td><%= studentData.first_registration %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-end">
+                      <strong>PROGRAMME:</strong>
+                    </td>
+                    <td><%= studentData.faculty_code %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-4">
+              <table class="table-borderless table table-sm m-0">
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>NATIONALITY:</strong> <%= studentData.nationality %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>HALL:</strong> <%= studentData.hall_of_attachment %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>DATE OF BIRTH:</strong> <%= studentData.date_of_birth %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <hr class="borderr-2 mt-0 mb-1 me-1">
+
+          <div class="p-0 results">
+            <div class="row gx-0">
+              <% studentData.chunkResults.forEach((chunkResult, chunkIndex) => { %>
+                <div class="col-6 pe-1">
+                  <% chunkResult.forEach((semester) => { %>
+                    <div class="border rounded bg-light px-1 py-0 fw-bold text-sm mb-1">
+                      <div class="mb-2">
+                          <span class="me-4">Year: <%= semester.programme_study_year.replace('YEAR ', '') %></span>
+                          <span class="mx-4">Academic Year :<%=  semester.academic_year %></span>
+                          <span class="text-capitalize ms-4"><%= semester.semester %></span>
+                        </div>
+                        <div>
+                          <span>Course Code</span>
+                          <span>Course Name</span>
+                          <span class="float-end me-1">Grade</span>
+                          <span class="float-end me-1">CU</span>
+                        </div>
+                    </div>
+                    <table
+                      class="table table-sm table-borderless w-100 ms-2 mb-1"
+                    >
+                      <tbody>
+                        <% semester.results.forEach((result) => { %>
+                          <tr>
+                            <td width="50"><%= result.course_unit_code %></td>
+                            <td><%= result.course_unit_name %></td>
+                            <td width="20"><%= parseFloat(result.credit_unit).toFixed(1) %> <div class="cu-circle">K</div> </td>
+                            <td width="40">
+                              <%= result.grading_letter %>
+                              <% if (result.remark === 'CP') { %> <strong>(CP)</strong> <% } %>
+                              <% if (result.remark === 'RT') { %> <strong>(RT)</strong> <% } %> 
+                              <% if (result.is_audited_course === true || result.course_unit_category.includes('AUDITED') || result.is_audited_result) { %> <strong>(AC)</strong> <% } %>
+                            </td>
+                          </tr>         
+                        <% }); %>
+
+
+                        <tr>
+                          <td class="text-center" colspan="4">
+                            <span class="me-5"><strong>GPA: </strong> <%= semester.current_gpa  %></span>                          
+                            <span><strong>CGPA: </strong><%= semester.cgpa  %></span>                          
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  <% }); %> 
+
+                  <% if (chunkIndex === studentData.chunkResults.length - 1) { %>
+                    <table class="table table-sm table-borderless m-0 text-md">
+                      <tbody>
+                        <tr>
+                          <td class="pt-1"><strong>Minimum Graduation Load (CUs): 120</strong> <strong class="ms-3">Total Credit Units Accumulates:</strong> <%= studentData.totalCumulativeCUs %> </td>
+                        </tr>
+                          <tr>
+                          <td class="pt-1">
+                            <strong>COMPLETION DATE: </strong> May/June <%= studentData.completionYear %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pt-1"><strong>AWARD: <%= studentData.programme_title %></strong></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-1"><strong>CLASS OF AWARD: <span><%= studentData.resultClass %></span></strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  <% } %> 
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+
+    
+        <div class="row g-2">
+          <div class="col-7 note-text">
+            <div class="mt-4 mb-1">
+              <div class="d-flex">
+                <div class="me-2">
+                  <span class="bulleting"></span>
+                </div>
+                <div>
+                  A Credit Unit (CU) is One Contact Hour per Week per Semester or a series of Fifteen (15) Contact Hours.
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="me-2">
+                  <span class="bulleting"></span>
+                </div>
+                <div>
+                  The length of a Semester is Seventeen (17) weeks, Two (2) of which are for Examination.
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="me-2">
+                  <span class="bulleting"></span>
+                </div>
+                <div>
+                  Transcript issued after <strong>April 2002</strong> shall bear Photographs.
+                </div>
+              </div>
+            </div>
+            <span class="fw-bold py-2 px-5 border d-inline-block">The Medium of Instruction is ENGLISH.</span>
+          </div>
+          <div class="col-5 text-center">
+            <div class="fw-bold mt-5 mb-2">
+              __________________________________
+            </div>
+            <h6 class="fw-bold">For: Academic Registrar</h6>
+            <div>Not valid without Official Stamp. Any alteration</div>
+            <div>whatsoever renders the Transcript invalid.</div>
+
+          </div>
+
+          <div class="col-3">
+            <div class="ms-3">* (CP) - Conceded Pass</div>
+            <small class="ms-3 mt-1 d-block"><%= studentData.serialNumber || '20190804311258' %></small>
+          </div>
+          <div class="col-7 text-center">
+            <div class="fw-bold text-lg">
+              For Key to Grades and Remarks, See Reverse
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+
+    <div class="back-preview">
+      <table class="table table-sm table-borderless">
+        <tbody>
+          <tr>
+            <td colspan="4" class="4">
+              <h6 class="text-center mb-3 fw-bold">KEY TO GRADES</h6>
+            
+              <div class="text-md">The Grading System and Classification for Undergraduate Degrees and Diplomas is as follows:</div>
+            </td>
+          </tr>
+          <tr class="border-red border-black">
+            <td colspan="2" width="50%">
+              <div class="fw-bold sub-header mb-1">Registration up to 1991</div>
+              <div class="fw-bold sub-header">Classification of Awards</div>
+            </td>
+            <td colspan="2" width="50%" class="border-left-red">
+              <div class="fw-bold sub-header mb-1">Registration Between 1992 - 1996</div>
+              <div class="fw-bold sub-header">Classification of Awards</div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="p-0">
+              <table class="table table-sm table-borderless m-0">
+                <tbody>
+                  <tr>
+                    <td><strong>a)</strong></td>
+                    <td colspan="2">
+                      <strong>First Degrees</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>A</td>
+                    <td>80 - 100%</td>
+                    <td>Excellent</td>
+                    <td>First Class Honors</td>
+                  </tr>
+                  <tr>
+                    <td>B+</td>
+                    <td>70 - 79%</td>
+                    <td>Very Good</td>
+                    <td>1st Class Honors</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>60 - 69%</td>
+                    <td>Good</td>
+                    <td>2nd Class Honors (Upper Division)</td>
+                  </tr>
+                  <tr class="border-dotted-b">
+                    <td>C</td>
+                    <td>50 - 59%</td>
+                    <td>Fair/Satisfactory</td>
+                    <td>2nd Class Honors (Lower Division)</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>44 - 49%</td>
+                    <td>(Compensatable Fail)</td>
+                    <td>Pass</td>
+                  </tr>
+                  <tr>
+                    <td>F</td>
+                    <td>0 - 44%</td>
+                    <td>Fail</td>
+                  </tr><tr>
+                    <td><strong>b)</strong></td>
+                    <td colspan="4">
+                      <strong>Undergraduate Diplomas/Certificates</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>70 - 100%</td>
+                    <td>Class One</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>50 - 69%</td>
+                    <td>Class Two</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>40 - 49%</td>
+                    <td>Class Three</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td colspan="2"  class="border-left-red p-0">
+              <table class="table table-sm table-borderless m-0">
+                <tbody>
+                  <tr>
+                    <td><strong>a)</strong></td>
+                    <td colspan="2">
+                      <strong>First Degrees</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>A</td>
+                    <td>70 - 100%</td>
+                    <td>Excellent</td>
+                    <td>First Class Honors</td>
+                  </tr>
+                  <tr>
+                    <td>B+</td>
+                    <td>60 - 69%</td>
+                    <td>Very Good</td>
+                    <td>1st Class Honors</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>50 - 59%</td>
+                    <td>Good</td>
+                    <td>2nd Class Honors (Upper Division)</td>
+                  </tr>
+                  <tr class="border-dotted-b">
+                    <td>C</td>
+                    <td>40 - 49%</td>
+                    <td>Fair/Satisfactory</td>
+                    <td>2nd Class Honors (Lower Division)</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>34 - 39%</td>
+                    <td>(Compensatable Fail)</td>
+                    <td>Pass</td>
+                  </tr>
+                  <tr>
+                    <td>F</td>
+                    <td>0 - 34%</td>
+                    <td>Fail</td>
+                  </tr><tr>
+                    <td><strong>b)</strong></td>
+                    <td colspan="2">
+                      <strong>Undergraduate Diplomas/Certificates</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>80 - 100%</td>
+                    <td>Class One</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>60 - 79%</td>
+                    <td>Class Two</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>50 - 59%</td>
+                    <td>Class Three</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="border-red border-black">
+            <td colspan="3">
+              <div class="fw-bold sub-header">Registration From 1997/98 to 2007/2008 AY</div>
+            </td>
+            <td  class="border-left-red">
+              <div class="fw-bold sub-header">Registration From 2008/2009 AY</div>
+            </td>
+          </tr>
+          <tr class="border-black">
+            <td width="20%">
+              <table class="table table-borderless table-sm m-0 ">
+                <thead>
+                  <tr>
+                    <th>Grade</th>
+                    <th>Marks</th>
+                    <th>GP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A</td>
+                    <td>80 - 100%</td>
+                    <td>5.0</td>
+                  </tr>
+                  <tr>
+                    <td>B+</td>
+                    <td>75 - 79.9%</td>
+                    <td>4.5</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>70 - 74.9%</td>
+                    <td>4.0</td>
+                  </tr>
+                  <tr>
+                    <td>B-</td>
+                    <td>64 - 69.9%</td>
+                    <td>4.0</td>
+                  </tr>
+                  <tr>
+                    <td>C+</td>
+                    <td>60 - 64.9%</td>
+                    <td>3.5</td>
+                  </tr>
+                  <tr>
+                    <td>C</td>
+                    <td>54 - 59.9%</td>
+                    <td>3.0</td>
+                  </tr>
+                  <tr>
+                    <td>C-</td>
+                    <td>50 - 54.9%</td>
+                    <td>2.5</td>
+                  </tr>
+                  <tr>
+                    <td>D+</td>
+                    <td>44 - 49.9%</td>
+                    <td>2.0</td>
+                  </tr>
+                  <tr>
+                    <td>D</td>
+                    <td>40 - 44.9%</td>
+                    <td>1.5</td>
+                  </tr>
+                  <tr>
+                    <td>D-</td>
+                    <td>35 - 39.9%</td>
+                    <td>1.5</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>Below 35</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="text-center">Pass Mark 50%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td colspan="2" class="border-dotted-l">
+              <table class="table table-sm table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="fw-bold" colspan="3">
+                      Classification of Awards
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="fw-bold">a) First Degrees</div>
+                    </td>
+                    <td colspan="2">
+                      <div class="fw-bold">c) Certificates</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>CGPA</td>
+                    <td>Class</td>
+                    <td>4.40 - 5.00 Distinction</td>
+                  </tr>
+                  <tr>
+                    <td>4.40 - 5.00</td>
+                    <td>1st Class Honors</td>
+                    <td>2.80 - 3.69 Credit</td>
+                  </tr>
+                  <tr>
+                    <td>3.60 - 4.39</td>
+                    <td>2nd Class Honors (Upper Division)</td>
+                    <td>2.00 - 2.79 Pass</td>
+                  </tr>
+                  <tr>
+                    <td>2.80 - 3.59</td>
+                    <td>2nd Class Honors (Lower Division)</td>
+                  </tr>
+                  <tr>
+                    <td>2.00 - 2.79</td>
+                    <td>Pass</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" colspan="3">
+                      b) Diplomas:
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4.40 - 5.00</td>
+                    <td>1st Class Honors</td>
+                    <td>2.80 - 3.69 Credit</td>
+                  </tr>
+                  <tr>
+                    <td>3.60 - 4.39</td>
+                    <td>2nd Class Honors (Upper Division)</td>
+                    <td>2.00 - 2.79 Pass</td>
+                  </tr>
+                  <tr>
+                    <td>2.80 - 3.59</td>
+                    <td>2nd Class Honors (Lower Division)</td>
+                  </tr>
+                  <tr>
+                    <td>2.00 - 2.79</td>
+                    <td>Pass</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td width="30%" class="border-left-red">
+              <table class="table table-borderless table-sm m-0 ">
+                <thead>
+                  <tr class="p-0">
+                    <th class="m-0 p-0">Marks</th>
+                    <th class="m-0 p-0">Letter</th>
+                    <th class="m-0 p-0">Grade</th>
+                    <th class="m-0 p-0">Interpretation</th>
+                  </tr>
+                  <tr class="p-0">
+                    <th class="m-0 p-0"></th>
+                    <th class="m-0 p-0">Grade</th>
+                    <th class="m-0 p-0">Point</th>
+                    <th class="m-0 p-0"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>90 - 100</td>
+                    <td>A+</td>
+                    <td>5</td>
+                    <td>Exceptional</td>
+                  </tr>
+                  <tr>
+                    <td>80 - 89</td>
+                    <td>A</td>
+                    <td>5</td>
+                    <td>Excellent</td>
+                  </tr>
+                  <tr>
+                    <td>75 - 79</td>
+                    <td>B+</td>
+                    <td>4.5</td>
+                    <td>Very Good</td>
+                  </tr>
+                  <tr>
+                    <td>70 - 74</td>
+                    <td>B</td>
+                    <td>4</td>
+                    <td>Good</td>
+                  </tr>
+                  <tr>
+                    <td>65 - 69</td>
+                    <td>C+</td>
+                    <td>3.5</td>
+                    <td>Fairly Good</td>
+                  </tr>
+                  <tr>
+                    <td>60 - 64</td>
+                    <td>C</td>
+                    <td>3</td>
+                    <td>Fair</td>
+                  </tr>
+                  <tr>
+                    <td>55 - 59</td>
+                    <td>D+</td>
+                    <td>2.5</td>
+                    <td>Pass</td>
+                  </tr>
+                  <tr>
+                    <td>50 - 54</td>
+                    <td>D</td>
+                    <td>2</td>
+                    <td>Marginal Pass</td>
+                  </tr>
+                  <tr>
+                    <td>45 - 49</td>
+                    <td>E</td>
+                    <td>1.5</td>
+                    <td>Marginal Fail</td>
+                  </tr>
+                  <tr>
+                    <td>40 - 45</td>
+                    <td>E-</td>
+                    <td>1</td>
+                    <td>Clear Fail</td>
+                  </tr>
+                  <tr>
+                    <td>Below 40</td>
+                    <td>F</td>
+                    <td>0</td>
+                    <td>Bad Fail</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <div class="d-flex w-100 justify-content-center">
+                <div>
+                  <div class="mb-3 d-flex">
+                    <div class="me-2">
+                      <span class="bulleting"></span>
+                    </div>
+                    <div>
+                      <div class="mb-1"><strong>The Following 1st Degrees are not classified:</strong></div>
+                      <div> - BVM, All Medicine-related Programmes except Pharmacy</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-5 d-flex">
+                    <div class="me-2">
+                      <span class="bulleting"></span>
+                    </div>
+                    <div>
+                      <div class="mb-1"><strong>The Following Diplomas/Certificates are not classified:</strong></div>
+                      <div>- All Medicine and Veterinary Medicine-related Programmes</div>
+                      <div>- Diploma in Theology</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-red border-black">
+            <td colspan="4" class="text-center sub-header">
+              <strong>KEY TO RESULTS / GRADING CODES</strong>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="p-0">
+              <div class="row g-0">
+                <div class="col-2">
+                  <table class="table table-sm text-sm table-borderless m-0">
+                    <tbody>
+                      <tr>
+                        <td><strong>AB</strong></td>
+                        <td>Absent</td>
+                      </tr>
+                      <tr>
+                        <td><strong>DY</strong></td>
+                        <td>Dead Year Granted</td>
+                      </tr>
+                      <tr>
+                        <td><strong>WD</strong></td>
+                        <td>Withdrawal Granted</td>
+                      </tr>
+                      <tr>
+                        <td><strong>NE</strong></td>
+                        <td> Not Examinable</td>
+                      </tr>
+                      <tr>
+                        <td><strong>RE</strong></td>
+                        <td>Results Expected</td>
+                      </tr>
+                      <tr>
+                        <td><strong>AU</strong></td>
+                        <td>Audited Course</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-5">
+                  <table class="table table-sm text-sm table-borderless m-0">
+                    <tbody>
+                      <tr>
+                        <td><strong>RR</strong></td>
+                        <td>Results obtained after a Repeat year</td>
+                      </tr>
+                      <tr>
+                        <td><strong>RS</strong></td>
+                        <td>Results obtained after Supplementary Examinations</td>
+                      </tr>
+                      <tr>
+                        <td><strong>RT</strong></td>
+                        <td>Results Obtained after Retaking a Course</td>
+                      </tr>
+                      <tr>
+                        <td><strong>CTR</strong></td>
+                        <td>Course To be Retaken</td>
+                      </tr>
+                      <tr>
+                        <td><strong>UE</strong></td>
+                        <td>University Exhibition</td>
+                      </tr>
+                      <tr>
+                        <td><strong>NP</strong></td>
+                        <td>Normal Progress</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col">
+                  <table class="table table-sm text-sm table-borderless m-0">
+                    <tbody>
+                      <tr>
+                        <td><strong>Ex</strong></td>
+                        <td>Exempt</td>
+                      </tr>
+                      <tr>
+                        <td><strong>FE</strong></td>
+                        <td>Failed Elective</td>
+                      </tr>
+                      <tr>
+                        <td><strong>RW</strong></td>
+                        <td>Results Withheld</td>
+                      </tr>
+                      <tr>
+                        <td><strong>RW</strong></td>
+                        <td>Results Withheld</td>
+                      </tr>
+                      <tr>
+                        <td><strong>GP</strong></td>
+                        <td>Grade Point</td>
+                      </tr> <tr>
+                        <td><strong>GPA</strong></td>
+                        <td>Grade Point Average</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col">
+                  <table class="table table-sm text-sm table-borderless m-0">
+                    <tbody>
+                      <tr>
+                        <td><strong>IP</strong></td>
+                        <td>In Progress</td>
+                      </tr>
+                      <tr>
+                        <td><strong>SE</strong></td>
+                        <td>Special Examination Granted</td>
+                      </tr>
+                      <tr>
+                        <td><strong>EL</strong></td>
+                        <td>Elective Course</td>
+                      </tr>
+                      <tr>
+                        <td><strong>EC</strong></td>
+                        <td>Extra Course</td>
+                      </tr>
+                      <tr>
+                        <td><strong>PP</strong></td>
+                        <td>Probationary Progress</td>
+                      </tr>
+                      <tr>
+                        <td><strong>CP</strong></td>
+                        <td>Conceded Pass</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-red border-black">
+            <td colspan="4" class="text-center sub-header">
+              <strong>KEY TO NATIONALITY CODES IN THE REGISTRATION NUMBER</strong>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="py-2">
+              <div class="row g-1">
+                <div class="col">
+                  U = Ugandan
+                </div>
+                <div class="col">
+                  T = Tanzanian
+                </div>
+                <div class="col">
+                  K = Kenyan
+                </div>
+                <div class="col">
+                  X = Others
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-red border-black">
+            <td colspan="4" class="text-center sub-header">
+              <strong>KEY TO FACULTY/INSTITUTE/SCHOOL ABBREVIATIONS</strong>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" width="45%" class="p-0">
+              <table class="table table-sm table-borderless text-sm m-0">
+                <tbody>
+                  <tr>
+                    <td><strong>EASLIS</strong></td>
+                    <td>East African School of Library and Information Science</td>
+                  </tr>
+                  <tr>
+                    <td><strong>IACE</strong></td>
+                    <td>Institute of Adult and Continuing Education</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ISAE</strong></td>
+                    <td>Institute of Statistics and Applied Economics</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MUIP</strong></td>
+                    <td>Makerere University Institute of Psychology</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FNC</strong></td>
+                    <td>Faculty of Forestry and Natural Conservation</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FCIT</strong></td>
+                    <td>Faculty of Computing and Informatics Technology</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td colspan="2" width="55%" class="p-0">
+              <table class="table table-sm table-borderless text-sm m-0">
+                <tbody>
+                  <tr>
+                    <td><strong>MTSIFA</strong></td>
+                    <td>Margaret Trowel School of Industrial and Fine Arts</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MUBS</strong></td>
+                    <td>Makerere University Business School</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FEMA</strong></td>
+                    <td>Faculty of Economics and Management</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MUIENR</strong></td>
+                    <td>Makerere University Institute of Environment and Natural Resources</td>
+                  </tr>
+                  <tr>
+                    <td><strong>IPH/MUSPH</strong></td>
+                    <td>Institute of Public Health/Makerere University School of Public Health</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-end me-4 mt-1">
+      <small><i>S&0 - 1748.01 - 7/16</i></small>
+    </div>
+  </body>
+</html>

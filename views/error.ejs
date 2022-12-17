@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SERVER ERROR</title>
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
+  </head>
+  <body style="text-align: center">
+    <h2 style="font-weight: 500; text-transform: uppercase">SERVER ERROR</h2>
+    <hr />
+    <h3 style="text-transform: uppercase; color: brown"><%= message %></h3>
+    <h2>STATUS CODE: <%= error.status %></h2>
+    <pre><%= error.stack %></pre>
+    <h4>&copy; <%= new Date().getFullYear() %> ACMIS v1.0</h4>
+  </body>
+</html>

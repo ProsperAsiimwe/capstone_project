@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="<%= studentData.appURL %>/documents/templates/MAK/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="<%= studentData.appURL %>/documents/templates/MAK/css/fonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      body {
+        font-size: 12px;
+        padding: 24px 24px 0px 24px;
+        margin: 0;
+        font-family: 'Times New Roman', sans-serif !important;
+        line-height: 1;
+        color: #000 !important;
+        /* background-image: url(http://localhost:3434/documents/templates/MAK/transcript-bg.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 100vh; */
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0cm;
+      }
+      .text-capitalize {
+        text-transform: capitalize !important;
+      }
+
+      .borderTable {
+        border-width: 0.5px;
+        border-style: solid;
+        border-color: rgb(112, 112, 112);
+      }
+
+      .fontArialNarrow {
+        font-family: 'Arial-Narrow', 'EB Garamond', sans-serif;
+        font-size: 9px !important;
+      }
+
+      .fontArial {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .fontTimes {
+        font-family: 'Times New Roman', sans-serif !important;
+      }
+
+      .bg-light {
+        background-color: rgba(211, 211, 211, 0.4) !important;
+      }
+
+      .profile-photo {
+        height: 90px;
+        position: absolute;
+        right: 0;
+        background-color: transparent !important;
+        top: 4rem;
+        right: 2rem;
+      }
+
+      .d-inline {
+        display: inline !important;
+      }
+
+      .page-1 {
+        position: absolute;
+        right: 4em;
+        margin-top: -3.5em;
+      }
+
+      .rounded {
+        border-radius: 2px !important;
+      }
+
+      .cu-circle {
+        border-radius: 2px;
+        padding: 0.5px 2px;
+        text-align: center;
+        position: absolute;
+        font-size: 7px;
+        margin-top: -0.6rem;
+        margin-left: 0.8rem;
+        margin-right: 0.7rem !important;
+        transform: rotate(90deg);
+        border: 0.5px solid rgb(9, 9, 9);
+      }
+
+      .serialNumber {
+        font-size: 7.5px !important;
+      }
+
+      .result-content {
+        min-height: 68vh;
+        font-size: 9px !important;
+        margin-top: 12.5rem;
+      }
+
+      .tr-border-title-b {
+        border-bottom: 3px solid #263238 !important;
+        background-color: #cfd8dc !important;
+      }
+
+      .results table th {
+        padding: 3px !important;
+        border-top: 1px solid #000 !important;
+        border-bottom: 1px solid #000 !important;
+      }
+
+      .hr-border {
+        border-bottom: 1px solid #000 !important;
+        font-weight: bold;
+      }
+
+      .fw-bold {
+        font-weight: bold !important;
+      }
+
+      .semester {
+        margin-bottom: 0.3em !important;
+        margin-top: 0.1em !important;
+      }
+
+      .results table td {
+        padding: 0.2em;
+        line-height: 1.1;
+        font-size: 9.5px !important;
+        font-family: 'EB Garamond', serif;
+      }
+
+      .studentBio table td {
+        font-size: 12px !important;
+      }
+
+      .result-count {
+        color: #8b9da6;
+        font-size: 7px;
+      }
+
+      .signature {
+        right: 4em;
+        position: absolute;
+        bottom: 10em;
+        height: 50px !important;
+        /* transform: rotate(10deg); */
+      }
+
+      .print-date {
+        font-family: 'Courier-PS-Bold', sans-serif;
+        font-size: 12px !important;
+        margin-bottom: 0.9em;
+        margin-left: 1.5em;
+        margin-top: 3em !important;
+      }
+
+      .text-sm {
+        font-size: 8.5px !important;
+      }
+
+      .text-md tbody td {
+        font-size: 10.5px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center">
+      <img class="profile-photo" src="<%= studentData.avatar %>" alt="Photo" />
+    </div>
+
+    <% studentData.studyYearKeys.forEach((studyYears, index) => { %>
+    <div class="result-content px-1">
+      <div class="page-1 fontArial pe-5">Page 1 of 1</div>
+
+      <div class="row g-0 ms-1 studentBio">
+        <div class="col-4">
+          <table class="table-borderless table table-sm m-0">
+            <tbody>
+              <tr>
+                <td>
+                  <strong>NAME:</strong>
+                  <span class="fw-bold"> <%= studentData.name %></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>REG. No.</strong> <%= studentData.registration_number
+                  %>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-uppercase">
+                  <strong>COLLEGE:</strong> <%= studentData.college_code %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <table class="table-borderless table table-sm m-0">
+            <tbody>
+              <tr>
+                <td width="70%" class="text-end px-0">
+                  <strong>SEX:</strong>
+                </td>
+                <td><%= studentData.gender %></td>
+              </tr>
+              <tr>
+                <td class="text-end px-0">
+                  <strong>FIRST REGISTERED:</strong>
+                </td>
+                <td><%= studentData.first_registration %></td>
+              </tr>
+              <tr>
+                <td class="text-end px-0">
+                  <strong>PROGRAMME:</strong>
+                </td>
+                <td><%= studentData.programme_code %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <table class="table-borderless table table-sm m-0">
+            <tbody>
+              <tr>
+                <td>
+                  <strong>NATIONALITY:</strong> <%= studentData.nationality %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>HALL:</strong> <%= studentData.hall_of_attachment %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>DATE OF BIRTH:</strong> <%= studentData.date_of_birth
+                  %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="results px-2">
+        <div class="row gx-1">
+          <div class="col-12"><div class="mb-1 hr-border"></div></div>
+          <% studentData.chunkResults.forEach((chunkResult, chunkIndex) => { %>
+          <div
+            class="<%= studentData.degreeCategory === 'Undergraduate' ? 'col-6' : 'col-12' %>"
+          >
+            <% chunkResult.forEach((semester) => { %>
+            <div class="borderTable rounded bg-light px-1 py-0 fw-bold text-sm">
+              <div class="mb-1">
+                <span class="me-4"
+                  >Year: <%= semester.programme_study_year.replace('YEAR ', '')
+                  %></span
+                >
+                <span class="mx-4"
+                  >Academic Year: <%= semester.academic_year %></span
+                >
+                <span class="text-capitalize ms-4">
+                  <%= studentData.capitalizeWords(semester.semester) %>
+                </span>
+              </div>
+              <div class="fontArialNarrow text-sm">
+                <span class="me-1">Course Code</span>
+                <span>Course Name</span>
+                <span class="ms-5 result-count"
+                  ><%= semester.results.length %></span
+                >
+                <span class="float-end me-2">Grade</span>
+                <span class="float-end pe-3">CU</span>
+              </div>
+            </div>
+            <table class="table table-sm table-borderless w-100 semester">
+              <tbody>
+                <% semester.results.forEach((result) => { %>
+                <tr>
+                  <td width="50" class="ps-1">
+                    <%= result.course_unit_code %>
+                  </td>
+                  <td class="ps-2"><%= result.course_unit_name %></td>
+                  <td width="24">
+                    <%= parseFloat(result.credit_unit).toFixed(1) %>
+                    <div class="cu-circle bg-light">
+                      <%= studentData.surname.charAt(0) %>
+                    </div>
+                  </td>
+                  <td width="16"><%= result.grading_letter %></td>
+                  <td width="20" class="px-0 text-start text-sm">
+                    <% if (result.remark === 'CP') { %> <strong>(CP)</strong> <%
+                    } %> <% if (result.remark === 'RT') { %>
+                    <strong>(RT)</strong>
+                    <% } %> <% if (result.is_audited_course === true ||
+                    result.course_unit_category.includes('AUDITED') ||
+                    result.is_audited_result) { %> <strong>(AC)</strong> <% } %>
+                  </td>
+                </tr>
+                <% }); %>
+
+                <tr>
+                  <td class="text-center fontTimes" colspan="5">
+                    <span class="me-5">
+                      <span class="fw-bold">GPA:</span>
+                      <span class="fw-normal"><%= semester.current_gpa %></span>
+                    </span>
+                    <span class="fw-bold">CGPA:</span>
+                    <span class="fw-normal"><%= semester.cgpa %></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <% }); %> <% if (chunkIndex === studentData.chunkResults.length - 1)
+            { %>
+            <table class="table table-borderless m-0 text-md">
+              <tbody>
+                <% if (studentData.remark) { %>
+                <tr>
+                  <td
+                    class="pt-1 fontTimes fw-bold"
+                    colspan="<%= studentData.degreeCategory === 'Undergraduate' ? '1' : '2' %>"
+                  >
+                    <%= studentData.remark %>
+                  </td>
+                </tr>
+                <% } if (studentData.has_dissertation === true &&
+                studentData.dissertation_title) { %>
+                <tr>
+                  <td
+                    class="pt-1 fontTimes fw-bold"
+                    colspan="<%= studentData.degreeCategory === 'Undergraduate' ? '1' : '2' %>"
+                  >
+                    <div class="borderTable p-2 mb-1">
+                      <div>
+                        <u><strong>Dissertation Title</strong></u>
+                      </div>
+                      <div class="my-2">
+                        "<%= studentData.dissertation_title %>"
+                      </div>
+                      <div class="mb-1">
+                        <u><strong>Remark</strong></u>
+                      </div>
+                      <div><%= studentData.dissertation_description %></div>
+                    </div>
+                  </td>
+                </tr>
+
+                <% } if (studentData.degreeCategory === 'Undergraduate') { %>
+                <tr>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold">
+                      Minimum Graduation Load (CUs):
+                    </strong>
+                    <%= studentData.graduation_load %>
+                    <strong class="ms-2 fw-bold">
+                      Total Credit Units Accumulated:
+                    </strong>
+                    <%= studentData.totalCumulativeCUs %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold">Completion Date: </strong>
+                    <%= studentData.completionDate %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold"> Award: </strong>
+                    <%= studentData.capitalizeWords(studentData.programme_title)
+                    %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold"> Class Of Award: </strong>
+                    <span>
+                      <%= studentData.is_classified === true ?
+                      studentData.resultClass : 'Not Classified' %>
+                    </span>
+                  </td>
+                </tr>
+                <% } else { %>
+                <tr>
+                  <td class="pt-1 fontTimes" width="50%">
+                    <strong class="fw-bold">
+                      Minimum Graduation Load (CUs):
+                    </strong>
+                    <%= studentData.graduation_load %>
+                  </td>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold">
+                      Total Credit Units Accumulated:
+                    </strong>
+                    <%= studentData.totalCumulativeCUs %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold">DATE OF COMPLETION: </strong>
+                    <%= studentData.completionDate %>
+                  </td>
+                  <td class="pt-1 fontTimes">
+                    <strong class="fw-bold"> CLASS OF AWARD: </strong>
+                    <span>
+                      <%= studentData.is_classified === true ?
+                      studentData.resultClass : 'Not Classified' %>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="pt-1 fontTimes">
+                    <strong class="fw-bold"> AWARD: </strong>
+                    <%= studentData.capitalizeWords(studentData.programme_title)
+                    %>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+            <% } %>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-2">
+      <div class="col-5 text-center offset-7">
+        <div class="fw-bold mt-3 mb-1">
+          <img src="<%= studentData.appURL %>/documents/templates/MAK/<%=
+          studentData.signature %>" alt="AR-SIGN" class="signature" width="210"
+          // height="80" />
+        </div>
+      </div>
+      <div class="col-5 offset-7 text-center">
+        <small class="d-block print-date"> <%= studentData.printDate %> </small>
+      </div>
+      <div class="col-12 mt-2">
+        <small class="ms-3 fw-bold text-sm">* (CP) - Conceded Pass</small>
+        <small class="ms-3 mt-1 serialNumber d-block">
+          <%= serialNumber %>
+        </small>
+      </div>
+    </div>
+    <% }); %>
+  </body>
+</html>

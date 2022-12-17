@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title><%= title %></title>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../public/stylesheets/emails.css"
+      media="all"
+    />
+    <!--[if mso]>
+      <style type="text/css">
+        .f-fallback {
+          font-family: Arial, sans-serif;
+        }
+      </style>
+    <![endif]-->
+  </head>
+
+  <body>
+    <span class="preheader"> <%= title %> </span>
+    <table
+      class="email-wrapper"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      role="presentation"
+    >
+      <tr>
+        <td align="center">
+          <table
+            class="email-content"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            role="presentation"
+          >
+            <tr>
+              <td class="email-masthead">
+                <a
+                  href="https://acmis.ac.ug/"
+                  class="f-fallback email-masthead_name text-uppercase"
+                >
+                  <%= `${structure.institution_name} ${app}` %>
+                </a>
+              </td>
+            </tr>
+            <!-- Email Body -->
+            <tr>
+              <td
+                class="email-body"
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+              >
+                <table
+                  class="email-body_inner"
+                  align="center"
+                  width="570"
+                  cellpadding="0"
+                  cellspacing="0"
+                  role="presentation"
+                >
+                  <!-- Body content -->
+                  <tr>
+                    <td class="content-cell">
+                      <div class="f-fallback">
+                        <h1
+                          style="
+                            margin-top: 0;
+                            color: #333333;
+                            font-size: 22px;
+                            font-weight: bold;
+                            text-align: left;
+                          "
+                          align="left"
+                        >
+                          Dear <%= fullname %>!
+                        </h1>
+
+                        <p>
+                          This email is to acknowledge receipt of your <%=
+                          paymentType %> of
+                          <strong>
+                            <%= parseInt(amount).toLocaleString() %> <%=
+                            currency %>
+                          </strong>
+                          to
+                          <strong class="text-uppercase">
+                            <%= `${structure.institution_name}` %>
+                          </strong>
+                          on Reference Number <%= prn %>.
+                        </p>
+
+                        <table
+                          class="purchase"
+                          width="100%"
+                          cellpadding="0"
+                          cellspacing="0"
+                          role="presentation"
+                        >
+                          <tr>
+                            <td>
+                              <h3>Reference Number: <%= prn %></h3>
+                            </td>
+                            <td>
+                              <h3 class="align-right">
+                                Payment date: <%= paymentDate %>
+                              </h3>
+                            </td>
+                          </tr>
+                          <% if (receivables.length > 0) { %>
+                          <tr>
+                            <td colspan="2">
+                              <table
+                                class="purchase_content"
+                                width="100%"
+                                cellpadding="0"
+                                cellspacing="0"
+                              >
+                                <tr>
+                                  <th class="purchase_heading" align="left">
+                                    <p class="f-fallback">Receivable</p>
+                                  </th>
+                                  <th
+                                    class="purchase_heading aligh-right"
+                                    align="right"
+                                  >
+                                    <p class="f-fallback">Amount</p>
+                                  </th>
+                                </tr>
+
+                                <% receivables.forEach((item) => { %>
+                                <tr>
+                                  <td style="width: 50%" class="purchase_item">
+                                    <span class="f-fallback">
+                                      <%= item.receivable %> (<%= item.quantity
+                                      %>)
+                                    </span>
+                                  </td>
+                                  <td
+                                    style="width: 50%"
+                                    class="purchase_item align-right"
+                                    align="right"
+                                  >
+                                    <span class="f-fallback">
+                                      <%= parseInt(item.amount).toLocaleString()
+                                      %>
+                                    </span>
+                                  </td>
+                                </tr>
+                                <% }); %>
+
+                                <tr>
+                                  <td
+                                    width="80%"
+                                    class="purchase_footer"
+                                    valign="middle"
+                                  >
+                                    <p
+                                      class="
+                                        f-fallback
+                                        purchase_total purchase_total--label
+                                      "
+                                    >
+                                      Total
+                                    </p>
+                                  </td>
+                                  <td
+                                    width="20%"
+                                    class="purchase_footer align-right"
+                                    valign="middle"
+                                    align="right"
+                                  >
+                                    <p class="f-fallback purchase_total">
+                                      <%= parseInt(amount, 10).toLocaleString()
+                                      %>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <% } %>
+                        </table>
+                        <p>
+                          If you are receiving this email in error, please
+                          ignore it or
+                          <a href="mailto:<%= `${process.env.INST_SUPPORT_EMAIL}` %>">
+                            contact support
+                          </a>
+                          if you have questions.
+                        </p>
+                        <p>Thanks, <br />The ACMIS Support Team</p>
+                        <table class="body-sub" role="presentation">
+                          <tr>
+                            <td>
+                              <p class="f-fallback sub">
+                                This is an auto-generated email please DO NOT
+                                Reply to it.
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table
+                  class="email-footer"
+                  align="center"
+                  width="570"
+                  cellpadding="0"
+                  cellspacing="0"
+                  role="presentation"
+                >
+                  <tr>
+                    <td class="content-cell" align="center">
+                      <p class="f-fallback text-uppercase sub align-center">
+                        &copy; <%= new Date().getFullYear() %>
+                        <strong>
+                          <%= `${structure.institution_name} ${app}` %>.
+                        </strong>
+                        All rights reserved.
+                      </p>
+                      <p class="f-fallback sub align-center">&copy; ACMIS</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

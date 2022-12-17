@@ -1,0 +1,44 @@
+const { Router } = require('express');
+const programmeRouter = require('./programmeRoutes');
+const facultyRouter = require('./facultyRoutes');
+const collegeRouter = require('./collegeRoutes');
+const subjectRouter = require('./subjectRoutes');
+const unebSubjectRouter = require('./unebSubjectRoutes');
+const courseUnitRouter = require('./courseUnitRoutes');
+const specializationRouter = require('./specializationRoutes');
+const subjectCombinationRouter = require('./subjectCombinationRoutes');
+const departmentRouter = require('./departmentRoutes');
+const programmeVersionRouter = require('./programmeVersionRoutes');
+const programmeVersionSubjectCombinationRouter = require('./programmeVersionSubjectCombinationRoutes');
+const gradingRouter = require('./gradingRoutes');
+const gradingValueRouter = require('./gradingValueRoutes');
+const programmeVersionPlanRouter = require('./programmeVersionPlanRoute');
+const progVersAdmCriteriaRouter = require('./progVersAdmCriteriaRoutes');
+const progVersPlanAdmCriteriaRouter = require('./progVersPlanAdmCriteriaRoutes');
+const semesterLoadRouter = require('./semesterLoadRoutes');
+const programmeAliasRouter = require('./programmeAliasRoutes');
+const programmesReportsRouter = require('./programmesReportsRoutes');
+
+//  Programmes Module API Endpoints
+const appRouter = Router();
+
+appRouter.use('/colleges', collegeRouter);
+appRouter.use('/faculties', facultyRouter);
+appRouter.use('/departments', departmentRouter);
+appRouter.use('/subjects', subjectRouter);
+appRouter.use('/uneb-subjects', unebSubjectRouter);
+appRouter.use('/course-units', courseUnitRouter);
+appRouter.use('/specializations', specializationRouter);
+appRouter.use('/subject-combinations', subjectCombinationRouter);
+appRouter.use('/programmes', programmeRouter);
+appRouter.use('/programme-versions', programmeVersionRouter);
+appRouter.use('/subject-combination', programmeVersionSubjectCombinationRouter);
+appRouter.use('/programme-version-plans', programmeVersionPlanRouter);
+appRouter.use('/gradings', gradingRouter);
+appRouter.use('/grading-values', gradingValueRouter);
+appRouter.use('/prog-version-adm-criteria', progVersAdmCriteriaRouter);
+appRouter.use('/prog-version-plan-adm-criteria', progVersPlanAdmCriteriaRouter);
+appRouter.use('/semester-load', semesterLoadRouter);
+appRouter.use('/programme-alias', programmeAliasRouter);
+appRouter.use('/programme-reports', programmesReportsRouter);
+module.exports = appRouter;

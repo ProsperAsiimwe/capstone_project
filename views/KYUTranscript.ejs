@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="<%= studentData.appURL %>/documents/templates/KYU/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<%= studentData.appURL %>/documents/templates/KYU/css/lato.css" rel="stylesheet" />
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+
+      body {
+        font-size: 9px;
+        padding: 0;
+        margin: 0;
+        font-family: TimesNewRoman, 'Times New Roman', 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 1;
+        color: #212529 !important;
+      }
+
+      @page 
+      { 
+          size: A4 portrait;
+          margin: 20px 0; 
+      }
+
+      .header {
+        letter-spacing: 0.1rem;
+        border-bottom: 0.2em solid #212529 !important;
+      }
+
+      .header h1 {
+        font-size: 27.5px !important;
+        letter-spacing: 0.16rem;
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      .header h3 {
+        font-size: 16px;
+        font-weight: bolder;
+        letter-spacing: 0.14rem;
+        margin: 0;
+        margin-bottom: 2px;
+      }
+
+      .header h4 {
+        font-size: 15.5px !important;
+        letter-spacing: 0.155rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .header h5 {
+        font-size: 15px;
+        line-height: 1;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .header h6 {
+        font-size: 9px;
+        font-weight: bolder;
+        letter-spacing: 0.14rem;
+        margin: 0;
+      }
+
+      .transcript-container {
+        font-family: 'Lato', sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        z-index: 1;
+      }
+
+      .table-title {
+        width: 117px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      .transcript-content {
+        width: 100%;
+        border: 2px solid #ff9822;
+        margin-top: 0.4rem;
+        padding: 0.2rem;
+        min-height: 70vh;
+        background-image: url('<%= studentData.appURL %>/documents/templates/KYU/bg-logo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 600px 510px;
+        z-index: 0.5;
+        font-family: 'Lato', sans-serif;
+      }
+
+      .bg-lighter {
+        background-color: rgba(255, 255, 255, 0.61) !important;
+      }
+
+      .student-bio {
+        border: 2px solid #000;
+        font-size: 10px;
+        padding: 4px;
+      }
+
+      .student-bio td {
+        border: none !important;
+        padding: 3px;
+      }
+
+      .documentTitle {
+        background-color: #ff9822;
+        font-size: 13px;
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 0.11rem;
+        padding: 2px;
+        margin-bottom: 2px;
+      }
+
+      .profile-photo {
+        /* width: 74px; */
+        height: 74px;
+      }
+
+      .logo {
+        width: 99px;
+        margin-top: 1.5px;
+      }
+
+      .results {
+        font-size: 8.5px !important;
+      }
+
+      .results table th {
+        padding: 3px !important;
+        letter-spacing: 1px;
+        border-top: 1px solid #0d6efd !important;
+        border-bottom: 1px solid #0d6efd !important;
+      }
+
+      .results table td {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        line-height: 1;
+        letter-spacing: 0.4px;
+        font-weight: normal;
+        font-size: 8px !important;
+      }
+
+      .results .semester {
+        color: #0d6efd;
+        font-weight: normal;
+        font-size: 10px;
+      }
+
+      .results .academic-year-result {
+        border-bottom: 2px solid #3664F2;
+        padding: 0 3px;
+      }
+
+      .footer {
+        background-color: #ff9822;
+      }
+
+      .note-text div,
+      .note div {
+        padding: 2px !important;
+        color: #2f3542;
+      }
+      .table-striped > tbody > tr:nth-child(2n + 1) > td,
+      .table-striped > tbody > tr:nth-child(2n + 1) > th {
+        background-color: rgb(239, 245, 253);
+      }
+      .cgpa {
+        background: transparent !important;
+        color: #198754;
+      }
+      .signature {
+        position: absolute;
+        right: 6em;
+        margin-top: -4em;
+      }
+    </style>
+  </head>
+  <body class="px-3">
+    <% studentData.studyYearKeys.forEach((studyYears, index) => { %>
+      <div class="header text-center mx-4 border-dark">
+        <div class="d-flex align-items-end justify-content-center">
+          <h1 class="fw-bold m-0">KYAMBOGO</h1>
+          <img
+            src="<%= studentData.appURL %>/documents/templates/KYU/logo.png"
+            class="logo mb-1 mx-2"
+            alt="Logo"
+          />
+          <h1 class="fw-bold m-0">UNIVERSITY</h1>
+        </div>
+        <h4>P. O. BOX 1 KYAMBOGO</h4>
+        <h5 class="tel">Tel: 0414-286237/8/285037</h5>
+        <h6>Email: arkyu@kyu.ac.ug, www.kyu.ac.ug</h6>
+        <h3>Office of the Academic Registrar</h3>
+      </div>
+
+      <div class="transcript-container">
+        <div class="transcript-content">
+          <div class="documentTitle text-center text-white text-md">
+            <strong>ACADEMIC TRANSCRIPT</strong>
+          </div>
+          <div class="student-bio">
+            <div class="d-flex align-items-end justify-content-start">
+              <div class="w-25 text-center">
+                <img
+                  class="profile-photo"
+                  src="<%= studentData.avatar %>"
+                  alt="Photo"
+                />
+                <div class="mt-2 mb-1 fw-bold">
+                  <%= studentData.student_number %>
+                </div>
+              </div>
+              <div class="w-75">
+                <table class="table table-sm table-borderless m-0">
+                  <tbody>
+                    <tr>
+                      <td class="text-end table-title fw-bold" style="width: 90px">
+                        REGISTRATION NO:
+                      </td>
+                      <td class="text-start">
+                        <%= studentData.registration_number %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">NAME:</td>
+                      <td class="text-start"><%= studentData.name %></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">GENDER:</td>
+                      <td class="text-start"><%= studentData.gender %></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">DATE OF BIRTH:</td>
+                      <td class="text-start">
+                        <%= studentData.date_of_birth %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">TYPE OF ENTRY:</td>
+                      <td class="text-start"><%= studentData.entryType %></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">FACULTY:</td>
+                      <td class="text-start">
+                        <%= studentData.faculty_title %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">PROGRAMME:</td>
+                      <td class="text-start">
+                        <%= studentData.programme_title %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-end table-title fw-bold">COMPLETION YEAR:</td>
+                      <td class="text-start"><%= studentData.completionYear %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="w-25 text-center">
+                <img src="<%= studentData.qrCode %>" alt="qrcode"/>
+                <div class="my-1 fw-bold">
+                  S/N: <%= serialNumber %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-lighter">
+            <div class="results mt-1">
+              <% studyYears.forEach((studyYear, studyYearIndex) => { %>
+                <div class="academic-year-result mb-1">
+                  <div class="row g-1">
+                    <% studentData.studyYears[studyYear].forEach((semester, semIndex) => { %>
+                      <div class="col-6">
+                        <div class="semester fw-bold px-3 py-1">
+                          <%= `${semester.programme_study_year} ${semester.semester}` %>
+
+                          <% if (semester.end_date) { %> 
+                            <span class="text-uppercase"> - <%= moment(semester.end_date).format('MMMM YYYY') %></span>
+                          <% } %> 
+                        </div>
+                        <table
+                          class="
+                            table table-sm table-striped table-borderless
+                            w-100
+                            m-0
+                          "
+                        >
+                          <thead>
+                            <tr>
+                              <th style="width: 55px">CODE</th>
+                              <th>COURSE/SUBJECT TITLE</th>
+                              <th style="width: 20px">CU</th>
+                              <th style="width: 20px">GP</th>
+                              <th style="<%= studentData.hasRetake === true ? 'width: 50px' : 'width: 20px'  %>">GD</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% semester.results.forEach((result) => { %>
+                              <tr>
+                                <td class="fw-bold text-sm">
+                                  <%= result.course_unit_code %> 
+                                  <%= result.retake_count %> 
+                                </td>
+                                <td>
+                                  <%= result.course_unit_name %> 
+                                </td>
+                                <td><%= result.credit_unit %> </td>
+                                <td><%= result.grading_point %> </td>
+                                <td>
+                                  <%= result.grading_letter.trim() %>
+                                  <% if (result.retake_count >= 1) { %> 
+                                  <span>(RT<%= "*".repeat(result.retake_count) %>)</span>
+                                  <% } %>
+                                </td>
+                              </tr>         
+                            <% }); %>
+
+                            <tr>
+                              <td
+                                class="cgpa text-center fw-bolder"
+                                colspan="5"
+                              >
+                                <span class="me-2">GPA: <%= semester.current_gpa %> </span>
+                                <% if ( (studyYearIndex !== 0 || semIndex !== 0) || index > 0 ) { %>
+                                  <span>CGPA: <%= semester.cgpa %> </span> 
+                                <% } %> 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    <% }); %> 
+                  </div>
+                </div>    
+              <% }); %>
+            </div>
+          </div>
+        </div>
+
+        <table class="table mt-3 mb-0 table-borderless table-sm" style="margin-top: 1em;">
+          <tbody>
+            <tr></tr>
+            <tr>
+              <td class="text-end fw-bold" style="width: 11%">FINAL CGPA:</td>
+              <td style="width: 60%"><%= studentData.finalCGPA %></td>
+              <td rowspan="2" class="fw-bold align-items-end">
+                <div class="fw-bold">
+                  Signed : _________________________
+                </div>
+                <img src="<%= studentData.appURL %>/documents/templates/KYU/AR-sign-01.png" alt="AR-SIGN" class="signature" width="120"  />
+                <div
+                  class="signature-title fw-bold text-center mt-1"
+                >
+                  <small>Academic Registrar</normal>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-end fw-bold">AWARD:</td>
+              <td><%= studentData.programme_title %></td>
+            </tr>
+            <tr>
+              <td class="text-end fw-bold">CLASS:</td>
+              <td><%= studentData.resultClass %></td>
+              <td class="fw-bold">
+                Date &amp; Stamp : ____________________
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="footer fw-bold mt-1 p-1">
+          <div class="row g-1">
+            <div class="col-1 text-end text-white note">
+              <div class="text-white">NOTE:</div>
+            </div>
+            <div class="col-11 note-text">
+              <div>
+                1. The transcript is not valid without the Official Stamp of
+                Kyambogo University
+              </div>
+              <div>2. The Medium of Instruction is English(UK)</div>
+              <div>
+                3. This transcript is verifiable online. Please follow the
+                instructions at https://documents.kyu.ac.ug/verify_transcript
+              </div>
+            </div>
+          </div>
+        </div>
+        <% if (studentData.studyYearKeys.length > 1 ) { %>
+            <div class="text-center mt-2">Page <%= index + 1 %>  of <%= studentData.studyYearKeys.length %></div>
+        <% } %>
+        <p></p>
+        <p></p>
+      </div>
+    <% }); %>
+  </body>
+</html>

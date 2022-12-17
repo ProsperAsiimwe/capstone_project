@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="<%= appURL %>/documents/templates/KYU/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';"
+    />
+
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+        height: 100%;
+        padding: 1em;
+      }
+
+      body {
+        font-size: 13px;
+        font-family: TimesNewRoman, 'Times New Roman', 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #000 !important;
+        height: 100%;
+      }
+
+      .header-table td {
+        padding: 4px 0px;
+      }
+
+      .text-sm {
+        font-size: 12px !important;
+      }
+
+      .signature {
+        margin-bottom: -0.5em;
+        margin-top: -0.5em;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div class="admissionContent text-start mt-3">
+        <div class="fw-bold mb-2 fs-6">Dear Student,</div>
+        <table
+          class="table header-table table-sm table-borderless text-sm fw-bold m-0"
+        >
+          <tbody>
+            <tr>
+              <td style="width: 140px">FULL NAME:</td>
+              <td><%= student.name %></td>
+              <td>PRINT DATE:</td>
+              <td><%= student.pD %></td>
+            </tr>
+            <tr>
+              <td>YEAR OF ENTRY:</td>
+              <td><%= student.yE %></td>
+              <td style="width: 140px">TYPE OF ENTRY:</td>
+              <td><%= student.eM %></td>
+            </tr>
+            <tr>
+              <td>KYU ADMISSION NO:</td>
+              <td><%= student.regN %></td>
+              <td>STUDENT NO.:</td>
+              <td><%= student.stdN %></td>
+            </tr>
+            <tr>
+              <td>NATIONALITY:</td>
+              <td><%= student.n %></td>
+              <td>RESIDENCE STATUS:</td>
+              <td><%- student.hA %></td>
+            </tr>
+            <tr>
+              <td>SPONSORSHIP:</td>
+              <td><%= student.s %></td>
+              <td>HALL:</td>
+              <td><%= student.hR %></td>
+            </tr>
+            <tr>
+              <td>STUDY CENTER:</td>
+              <td><%= student.c %></td>
+              <td>STUDY TIME:</td>
+              <td><%= student.pT %></td>
+            </tr>
+            <tr>
+              <td>PROGRAMME NAME:</td>
+              <td colspan="3"><%= student.prog %> - (<%= student.code %>)</td>
+            </tr>
+            <tr>
+              <td>FACULTY NAME:</td>
+              <td colspan="3"><%= student.fT %></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div>
+          <div class="fs-6 fw-bold my-2 text-center text-uppercase">
+            2021/2022 ACADEMIC YEAR ADMISSION
+          </div>
+
+          <p>
+            I write to offer you a place on the above programme of study for the
+            <strong><%= student.aY %></strong> Academic Year.
+          </p>
+
+          <p>
+            This offer of Admission lapses automatically if not taken up
+            <strong>within two weeks</strong> from the beginning of the Academic
+            Year. Please note that the offer is provisional, subject to
+            satisfactory registration by the office of the Academic Registrar at
+            the time of verification of the qualifications stated in the
+            application form you filled, and in line with regulations governing
+            the programme to which you have been admitted. For purpose of
+            verification, you must bring with you the following:
+          </p>
+
+          <div class="my-2">
+            <div class="row">
+              <div class="col-1">(a)</div>
+              <div class="col-11">
+                <strong>Original</strong> Uganda Certificate of Education
+                <strong><u>Result slip</u></strong> and
+                <strong><u>Certificate</u></strong> (or equivalent) plus three
+                (3) photo copies of each.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(b)</div>
+              <div class="col-11">
+                <strong>Original</strong> Uganda Advanced Certificate of
+                Education <strong><u>Result slip</u></strong> and
+                <strong><u>Certificate</u></strong>
+                (or equivalent) plus three (3) Photostat copies of each.
+                <strong>Certificates</strong> are required for all those who sat
+                A’ level before 2016.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(c)</div>
+              <div class="col-11">
+                <strong>Original</strong> Diploma
+                <strong><u>Academic Transcript</u></strong> and
+                <strong><u>Certificate</u></strong> plus three photo copies of
+                each (for Certificate/Diploma/Degree entrants only).
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(d)</div>
+              <div class="col-11">
+                <strong>Six (6)</strong> Passport size photographs showing your
+                current likeness (head and shoulders).
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(e)</div>
+              <div class="col-11">
+                An <strong>Identity Card</strong> from the previous
+                School/College, <strong><u>plus</u></strong> a
+                <strong>passport</strong>
+                for foreign students
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(f)</div>
+              <div class="col-11">
+                <strong>Original</strong> Birth Certificate or
+                <strong>National Identity Card</strong> and three (3) photo
+                copies of it.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(g)</div>
+              <div class="col-11 fw-bold">
+                Refugee students should in addition to the above, present proof
+                of refugee status.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(h)</div>
+              <div class="col-11">
+                Proof of payment of Kyambogo University
+                <strong><u>Mandatory Fees</u></strong
+                >.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(i)</div>
+              <div class="col-11">
+                <strong>Original</strong> National Council for Higher Education
+                (NCHE) Fees Payment Deposit Slip plus three (3) photo copies of
+                it.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1">(j)</div>
+              <div class="col-11">
+                Internet enabled device that can facilitate e-learning
+                <strong>
+                  e.g., Computer, Laptop, IPad/Tablet, Smart Phone etc.
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            It is important that you acquaint yourself with the regulations
+            governing your stay at the University and your entitlements as a
+            Private student. In all correspondences, please quote the admission
+            number appearing on your admission letter. This shall also be your
+            Registration Number to be used in all your academic work. Overleaf
+            are key points for you to note with more details contained in the
+            Joining Instructions. Please download the Joining Instructions and
+            any other academic related information from Kyambogo University
+            website <a href="https://kyu.ac.ug">https://kyu.ac.ug</a>.
+          </p>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <div class="fs-6 fw-bold mb-3 text-uppercase text-center">
+            Important things to note
+          </div>
+
+          <ol>
+            <li>
+              All students should complete all registration formalities within
+              six (06) weeks from the starting date of the Academic Year or
+              Semester. All fresh students who do not register within this time
+              will be deemed to have turned down the offer of admission, and
+              their places declared vacant for replacement.
+            </li>
+            <li>
+              Any student who intends to withdraw from the University shall do
+              so in writing, and only after registration. Except on grounds of
+              medical incapacitation, withdrawal shall be valid for a period of
+              only one Academic Year.
+            </li>
+            <li>
+              Students granted permission to withdraw, shall be required to
+              resume studies as stated in the letters granting them permission
+              to withdraw.
+            </li>
+            <li>
+              Full contact addresses of students, parents/guardians must be
+              provided on the Verification Forms.
+            </li>
+            <li>
+              The University runs a seven-day week. Lectures, tests, practicals
+              and examinations shall therefore be conducted on any of the seven
+              days of the week.
+            </li>
+            <li>
+              Always obtain marked scripts of your coursework, tests, practicals
+              and reports and keep them securely at all times until you complete
+              your studies.
+            </li>
+
+            <li>
+              Fees defaulters shall not be allowed to attend lectures, do
+              coursework/tests or sit any examinations. It is an offence to sit
+              examinations without completing payment of fees or obtaining
+              authority from designated officer of the University.
+            </li>
+
+            <li>
+              You are invited to attend the 20th KyU Admissions Ceremony
+              scheduled on a date to be advised, while dressed in an
+              Undergraduate students’ gown. The gown shall be issued by the
+              office of the Dean of Students upon payment and presentation of
+              your registration token.
+            </li>
+
+            <li>
+              Only verified and registered students will be invited to attend
+              the Admissions Ceremony.
+            </li>
+
+            <li>
+              All government-sponsored students should open bank accounts with
+              Stanbic Bank, DFCU Bank or Ecobank, Kyambogo Branch and file this
+              information with the Office of the Dean of Students immediately
+              after registration.
+            </li>
+
+            <li>
+              Breach of any University Rules and Regulations shall lead to dire
+              consequences, including dismissal from the University. Acquaint
+              yourself with these and any other University regulations from the
+              outset.
+            </li>
+
+            <li>
+              All admitted students are required to sign this letter in the
+              space provided below and return a copy to the Admissions Office
+              through the Faculty/School Administrator who issued the letter to
+              him/her.
+            </li>
+
+            <li>
+              I congratulate you upon your admission and wish you success in
+              your studies as a student of Kyambogo University.
+            </li>
+            <li>
+              You are required to enrol into the University using the online
+              enrolling system accessed using internet services at
+              <a href="https://myportal.kyu.ac.ug">https://myportal.kyu.ac.ug</a
+              >. By enrolling you are informing the University that you have
+              reported and shall be available for the semester. Enrolling must
+              be done every semester.
+            </li>
+            <li>
+              Candidates are warned that cases of impersonation, falsification
+              of documents or giving false/incomplete information whenever
+              discovered either at registration or afterwards, will lead to
+              automatic cancellation of admission, besides being referred to
+              Police for Prosecution.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <footer>
+        <div>
+          <div>Yours faithfully,</div>
+          <img
+            src="<%= appURL %>/documents/templates/KYU/AR-sign-01.png"
+            alt="AR-SIGN"
+            class="signature text-center"
+            height="80"
+          />
+          <div class="m-0">Annie Begumisa (Ph.D)</div>
+          <div class="text-uppercase fw-bold">Academic Registrar</div>
+        </div>
+        <div>
+          <div class="text-center fw-bold underline">COMMITMENT BY STUDENT</div>
+          <p>
+            I,
+            ....................................................................................................................................,
+            having been duly admitted by the Kyambogo University Admissions
+            Board, do accept the offer of admission and promise to abide by all
+            the Regulations of the University governing my status as a student
+            of Kyambogo University.
+          </p>
+          <p>
+            SIGNED: ............................................................
+            THIS .......................... DAY OF
+            ....................................<%= new Date().getFullYear() %>>
+            >.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

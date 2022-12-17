@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="/documents/templates/KYU/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';"
+    />
+
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+        height: 100%;
+        padding: 1em;
+      }
+
+      body {
+        font-size: 14px;
+        padding: 0;
+        font-family: TimesNewRoman, 'Times New Roman', 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #000 !important;
+        height: 100%;
+      }
+
+      .header h1 {
+        font-weight: 550 !important;
+        margin-top: 0.5em;
+      }
+
+      .logo {
+        width: 120px;
+        margin-top: 1.5px;
+      }
+
+      .text-sm {
+        font-size: smaller;
+      }
+
+      .signature {
+        margin-bottom: -0.5em;
+        margin-top: -0.5em;
+      }
+
+      .table td {
+        padding: 2px 0px;
+      }
+
+      .requirement-table td {
+        padding: 1px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="header text-center mx-4 border-dark mb-2">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="text-end" style="width: 150px">
+            <h1 class="mb-0 fs-1 text-end">MAKERERE</h1>
+          </div>
+          <div style="width: 150px">
+            <img
+              src="<%= appURL %>/documents/templates/GUL/GULULogo.jpeg"
+              class="logo mx-2"
+              alt="Logo"
+            />
+          </div>
+          <div class="text-start">
+            <h1 class="mb-0 fs-1 text-start">UNIVERSITY</h1>
+          </div>
+        </div>
+        <div class="fs-6 fw-bold text-uppercase">
+          ACADEMIC REGISTRAR'S DEPARTMENT
+        </div>
+
+        <div class="my-2">
+          <div class="bg-danger pt-1"></div>
+          <div class="bg-warning pt-1"></div>
+          <div class="bg-success pt-1"></div>
+        </div>
+      </div>
+
+      <div class="admissionContent text-start mt-3">
+        <div class="fs-6 fw-bold mb-3 text-center text-dark">
+          <spa class="fw-bolder border-bottom">
+            PROVISIONAL ADMISSION LETTER
+          </span>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            NAME:............................................................................
+          </div>
+          <div class="col-6">
+            REG. NO.:............................................................................
+          </div>
+          <div class="col-6">
+            DATE:............................................................................
+          </div>
+          <div class="col-12">
+            STUDENT NO.:............................................................................
+          </div>
+        </div>
+
+
+        <div>
+          <div class="fw-normal mb-2 fs-6">
+            Dear <strong>Sir/Madam</strong>,
+          </div>
+
+          <div class="text-center">
+            <span class="border-bottom">
+              PROVISIONAL ADMISSION LETTER TO ACADEMIC YEAR 2018/2019
+            </span>
+          </div>
+
+          <p>
+            I am pleased to inform you that you have been offered a place on a programme of study leading to the following award:
+          </p>
+
+          <div>
+            POSTGRADUATE DIPLOMA IN CONSTRUCTION PROJECT MANAGEMENT
+            <div>............................................................................</div>
+          </div>
+
+          <p>
+           This is a provisional offer subject to payment of 60% Tuition and all Functional Fees before issuance of Admission Letter from the Directorate of Research and Graduate Training. The new tuition policy states as follows:
+          </p>
+
+          <ul type="i">
+            <li>All privately sponsored students should pay 60% tuition at the beginning of every semester and full functional fees at beginning of the 1st Semester.</li>
+            <li>All privately sponsored first year students should pay 60% tuition and all functional fees before issuance of admission letters.</li>
+            <li>All students should have paid 100% tuition by the end of the 6th week of the semester.</li>
+            <li>Any student, who would not have paid 100% tuition by the 6th week, should have paid all functional fees and 60% of the tuition fees if they are to be allowed to do 60% of the course load.</li>
+          </ul>
+
+          <p>A copy of the Fees Structure is herewith attached.</p>
+        </div>
+      </div>
+
+      <footer>
+        <div>
+          <img
+            src="<%= appURL %>/documents/templates/MAK/ARSignature.png"
+            alt="AR-SIGN"
+            class="signature text-center"
+            height="80"
+          />
+          <div class="m-0">Alfred Masikye Namoah,</div>
+          <div class="fw-bold">ACADEMIC REGISTRAR</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

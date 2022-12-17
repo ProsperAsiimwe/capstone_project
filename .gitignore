@@ -1,0 +1,16 @@
+node_modules/
+.env
+package-lock.json
+storage/logs/
+src/assets/images/students-photos
+src/assets/photos
+src/assets/images/default.png
+src/assets/logo
+src/assets/documents
+src/assets/admissions
+.vscode/
+logfile
+build/
+.husky/
+.DS_Store
+.idea/

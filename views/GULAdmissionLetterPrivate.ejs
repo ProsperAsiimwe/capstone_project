@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="<%= appURL %>/documents/templates/GUL/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';"
+    />
+
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+        height: 100%;
+        padding: 1em;
+      }
+
+      body {
+        font-size: 14px;
+        padding: 0;
+        font-family: TimesNewRoman, 'Times New Roman', 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #000 !important;
+        height: 100%;
+      }
+
+      @page { size: A4 portrait; margin: 50; }
+      
+      .header h1 {
+        font-weight: 550 !important;
+        margin-top: 0.5em;
+      }
+
+      .logo {
+        width: 120px;
+        margin-top: 1rem;
+      }
+
+      .text-sm {
+        font-size: 10px;
+      }
+
+      .signature {
+        margin-bottom: -0.5em;
+        margin-top: -0.5em;
+      }
+
+      .table td {
+        padding: 2px 0px;
+      }
+
+      .requirement-table td {
+        padding: 1px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="header text-center mx-4 border-dark mb-2">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="text-end" style="width: 150px">
+            <h1 class="mb-0 fs-1 text-end">GULU</h1>
+            <div class="text-sm py-0"><strong>P.O BOX 166</strong></div>
+            <div class="text-sm my-0"><strong>GULU,</strong></div>
+            <div class="text-sm my-0"><strong>UGANDA</strong></div>
+          </div>
+          <div style="width: 150px">
+            <img
+              src="<%= appURL %>/documents/templates/GUL/GULULogo.jpeg"
+              class="logo mx-2"
+              alt="Logo"
+            />
+          </div>
+          <div class="text-start">
+            <h1 class="mb-0 fs-1 text-start">UNIVERSITY</h1>
+            <div class="text-sm my-0"><strong>Tel: +256-471-432921 / 433573</strong></div>
+            <div class="text-sm my-0"><strong>E-mail: ar@gu.ac.ug</strong></div>
+            <div class="text-sm my-0"><strong>URL: www.gu.ac.ug</strong></div>
+          </div>
+        </div>
+        <div class="fs-6 fw-bold text-uppercase">
+          Office of The Academic Registrar
+        </div>
+
+        <div class="mt-1">
+          <div class="bg-danger pt-1"></div>
+          <div class="bg-warning pt-1"></div>
+          <div class="bg-success pt-1"></div>
+        </div>
+      </div>
+
+      <div class="admissionContent text-start">
+        <div class="fs-6 fw-bold text-center text-dark">
+          <span  class="fw-bolder">
+            ADMISSION <%= student.aY %> ACADEMIC YEAR
+          </span>
+        </div>
+
+        <table class="table table-sm table-borderless text-sm mb-1">
+          <tbody>
+            <tr>
+              <td>NAME:</td>
+              <td><strong><%= student.name %> </strong></td>
+              <td>DATE:</td>
+              <td><strong><%= student.pD %></strong></td>
+            </tr>
+            <tr>
+              <td>REG NO.:</td>
+              <td><strong><%= student.regN %> </strong></strong></td>
+              <td>YEAR OF ENTRY:</td>
+              <td><strong><%= student.yE %></strong></td>
+            </tr>
+            <tr>
+              <td>STUDENT NO.:</td>
+              <td><strong><%= student.stdN %> </strong></td>
+              <td>MODE OF ENTRY:</td>
+              <td><strong><%= student.mE %> </strong></td>
+            </tr>
+            <tr>
+              <td>SEX:</td>
+              <td><strong><%= student.g %> </strong></td>
+              <td>A LEVEL INDEX:</td>
+              <td><strong><%= student.aI %> </strong></td>
+            </tr>
+            <tr>
+              <td>YEAR OF A LEVEL:</td>
+              <td><strong><%= student.yA %> </strong></td>
+              <td>STUDY TIME:</td>
+              <td><strong><%= student.pT %> </strong></td>
+            </tr>
+            <tr>
+              <td>SPONSORSHIP:</td>
+              <td><strong><%= student.s %> </strong></td>
+              <td>NATIONALITY:</td>
+              <td><strong><%= student.n %> </strong></td>
+            </tr>
+            <% if (student.sC) { %> 
+            <tr>
+              <td colspan="=2">SUBJECT COMBINATION:</td>
+              <td colspan="3"><strong><%= student.sC %> </strong></td>
+            </tr>
+            <% } %> 
+          </tbody>
+        </table>
+
+        <div>
+          <div class="fw-normal mb-1 fs-6">
+            Dear <strong>Sir/Madam</strong>,
+          </div>
+
+          <p>
+            I write to offer you a place at Gulu University for the Academic
+            Year <strong><%= student.aY %> </strong> to pursue a
+            <strong><%= student.pDu %> </strong> -Year
+            programme of study leading to the award of the
+            <small><strong><%= student.prog %></strong></small>
+          </p>
+
+          <p>
+            You will report to the University on <strong><u><%= student.rD %></u></strong>. The first week will
+            be for orientation of fresher’s that you must attend in person. You
+            should ensure that you register with the University within three
+            weeks from the beginning of the academic year. Failure to register
+            by <strong><u><%= student.rDl %></u></strong> will automatically lead to forfeiting your place.
+          </p>
+
+          <p class="mb-1">
+            This offer is provisional based on the statement of your
+            qualifications. It is subject to verification of those
+            qualifications by the office of the Academic Registrar at the time
+            of registration. For the purpose of registration, you must therefore
+            present the following:
+          </p>
+
+          <div class="ps-4">
+            <div>
+              <span class="me-2">(a)</span>
+              Original Uganda Certificate of Education or its equivalent;
+            </div>
+            <div>
+              <span class="me-2">(b)</span>
+              Original Uganda Advanced Certificate of Education or its
+              equivalent;
+            </div>
+            <div>
+              <span class="me-2">(c)</span>
+              Where applicable, original Diploma/Degree Certificate(s) and
+              Transcript(s);
+            </div>
+            <div>
+              <span class="me-2">(d)</span>
+              Five (5) passport size photographs showing your current likeness
+              (head and shoulder) with your name and student number written at
+              the back;
+            </div>
+            <div>
+              <span class="me-2">(e)</span>
+              Identity Card from your previous school/institution; and
+            </div>
+            <div>
+              <span class="me-2">(f)</span>
+              National Identity Card or Birth Certificate.
+            </div>
+          </div>
+
+          <p>
+            Please note that cases of impersonation, falsification of documents or giving false/incomplete information whenever discovered, either at registration or afterwards, will lead to automatic cancellation of your admission. 
+          </p>
+
+          <p class="my-1">
+            <strong>Due to the blended mode of study at the University, you are required
+            to come with a Laptop Computer.</strong>
+          </p>
+
+          <div>
+            <strong>Fees for Privately Sponsored Students:</strong>
+          </div>
+          <div class="ps-4">
+            <div class="fw-bold"> A. General Charges/Functional Fees</div>
+            <table class="table table-borderless requirement-table">
+              <tbody>
+                <tr>
+                  <td><span class="me-2">(a)</span> Registration (per semester)</td>
+                  <td class="text-end">30,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(b)</span> Surcharge (for students who fail to pay 100% of fees by end of the 8th week)
+                  </td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(c)</span> Technology Fee (per annum)
+                  </td>
+                  <td class="text-end">50,000=</td>
+                </tr>
+                <tr>
+                  <td><span class="me-2">(d)</span> Examination Fee (per semester)</td>
+                  <td class="text-end">80,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(e)</span> UNSA Fee (per annum)
+                  </td>
+                  <td class="text-end">2,000=</td>
+                </tr>
+                <tr>
+                  <td><span class="me-2">(f)</span> Identity Card (once)</td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(g)</span> Sports Fee (per semester)
+                  </td>
+                  <td class="text-end">30,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(h)</span> University rules book (once)
+                  </td>
+                  <td class="text-end">5,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(i)</span> Capital Development (once)
+                  </td>
+                  <td class="text-end">80,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(j)</span> Re-examination/Retake Fee (per paper)
+                  </td>
+                  <td class="text-end">6,000=</td>
+                </tr>
+                <tr class="mb-4">
+                  <td>
+                    <span class="me-2">(k)</span> Medical Examination (once)
+                  </td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(l)</span> Medical Fee (per semester)
+                  </td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <br>
+            <br>
+            <br>
+            <table class="table table-borderless requirement-table">
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="me-2">(m)</span> Library User Fee (per semester)
+                  </td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(n)</span> Guild Fee (per semester)
+                  </td>
+                  <td class="text-end">30,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(o)</span> School Practice Fee (annually for Bachelor of Arts/Science Education, Bachelor of Education (Early Childhood Education) students in Year 2 & 3, and Postgraduate Diploma in Education in Year1)
+                  </td>
+                  <td class="text-end">150,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(p)</span> Internship Fee (for Bachelors of Science in Computer Science, Information and Communication Technology, Gaming & Animation Technology, Business Computing, and Applied Science Chemistry) and Bachelor of Applied Science (Biological) (Per Semester of Year 1& 2)
+                  </td>
+                  <td class="text-end">70,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(q)</span> Internship Fee (for Bachelor of Science in Public Health only) (Payable annually in Year 1 & 2)
+                  </td>
+                  <td class="text-end">150,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(r)</span>  Internship Fee (for Bachelor of Science Economics, Bachelor of Quantitative Economics, Bachelor of Business Administration, Bachelor of Public Administration and Bachelor of Development Studies only) (in year two semester two)
+                  </td>
+                  <td class="text-end">150,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(s)</span> Internship Fee (For Master of Science in Applied Tropical Entomology & Parasitology) (Per Semester of Year 1)
+                  </td>
+                  <td class="text-end">200,000=</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="me-2">(t)</span> Internship Fee (for Bachelor of Secretarial and Administrative Studies, Bachelor of Development Economics, Bachelor of Procurement and Supply Chain Management (Payable in Year 2 Semester 2) 
+                  </td>
+                  <td class="text-end">500,000=</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fw-bold">
+            B. Tuition Fee per Semester
+          </div>
+
+          <div class="ps-4">
+            <table class="table table-borderless requirement-table m-0">
+              <tbody>
+                <tr>
+                  <td><small class="me-2"><strong><%= student.prog %> </strong></small></td>
+                  <td class="text-end"><%= student.progFees %>=</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <div class="fw-bold">
+            C. Other Fees (paid once on completion of studies, and are subject to
+            change)
+          </div>
+
+          <div class="ps-4">
+            <table class="table table-borderless requirement-table">
+              <tbody>
+                <tr>
+                  <td><span class="me-2">(a)</span> Graduation Fee</td>
+                  <td class="text-end">100,000=</td>
+                </tr>
+                <tr>
+                  <td><span class="me-2">(b)</span> Convocation Fee</td>
+                  <td class="text-end">10,000=</td>
+                </tr>
+                <tr>
+                  <td><span class="me-2">(c)</span> Transcript Fee</td>
+                  <td class="text-end">20,000=</td>
+                </tr>
+                <tr>
+                  <td><span class="me-2">(d)</span> Certificate Fee</td>
+                  <td class="text-end">10,000=</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            In addition, every student is required to pay UGX 20,000 (Uganda
+            shillings twenty thousand only) per annum to National Council for
+            Higher Education in any of the designated banks as a precondition
+            for registration in Semester One.
+          </p>
+
+          <p>
+            Tuition and all other functional fees must be paid in designated
+            banks after enrolling online through your student portal accessible
+            on the website https://myportal.gu.ac.ug and generating Payment
+            Reference Number (PRN).
+          </p>
+
+          <p>
+            Government sponsored students should note that their sponsorship is
+            only valid for the duration stated on this admission letter. Any
+            extensions of your study shall not be financed by the Government of
+            the Republic of Uganda.
+          </p>
+          <p>
+            Note that Gulu University is a non-residential university. Students
+            are accommodated in private hostels and are expected to bring along
+            their personal belongings. Students are also advised to have
+            additional money for their upkeep. On arrival you should report to
+            the Dean of Students who will give you more information on
+            accommodation.
+          </p>
+
+          <p>I congratulate you upon your admission to Gulu University.</p>
+        </div>
+      </div>
+
+      <footer>
+        <div>
+          <div>Yours faithfully,</div>
+          <br>
+          <img
+            src="<%= appURL %>/documents/templates/GUL/ARSignature.png"
+            alt="AR-SIGN"
+            class="signature text-center"
+            height="80"
+          />
+          <div class="m-0">Dr. Jerry Bagaya</div>
+          <div class="fw-bold">ACADEMIC REGISTRAR</div>
+        </div>
+
+        <hr class="my-2" />
+        <div>
+          <div class="text-center fw-bold underline">ACCEPTANCE STATEMENT</div>
+          <div>
+            I,
+            .........................................................................................................................,
+            Reg. No.:................................................ do accept the offer by Gulu University to
+            pursue studies leading to the award of <strong><u><%= student.prog %> </u></strong>
+          </div>
+          <div>
+            I shall abide by the conditions stated in this Admission Letter and by any other
+            conditions as shall be prescribed by Gulu University.
+          </div>
+          <p>
+            Signature:............................................................
+            Date:.....................................
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

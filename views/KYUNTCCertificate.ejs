@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="<%= studentData.appURL %>/documents/templates/KYU/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="<%= studentData.appURL %>/documents/templates/KYU/css/lato.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+        height: 98%;
+        margin: 0.5em !important;
+        border: 1px solid rgb(212, 212, 212);
+      }
+
+      body {
+        font-size: 28px;
+        padding: 0;
+        font-family: TimesNewRoman, 'Times New Roman', 'Lato', sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #000 !important;
+        text-align: center;
+        background-image: url('<%= studentData.appURL %>/documents/templates/KYU/KYU-certificate.png');
+        background-repeat: no-repeat;
+        /* background-position: initial; */
+        /* overflow: hidden; */
+        background-size: 100% 100%;
+        height: 100%;
+      }
+
+      .header h1 {
+        font-weight: 550 !important;
+        margin-top: 0.5em;
+      }
+
+      .serialNumber {
+        font-size: 10px;
+      }
+
+      .studentName {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900 !important;
+      }
+
+      .certificate-content {
+        margin-top: 0.5rem;
+        min-height: 68vh;
+      }
+
+      .avatar-placeholder {
+        background-color: #fff;
+        padding: 2px;
+        border: 1px solid #000;
+        height: 115px;
+        width: 115px;
+        text-align: center;
+      }
+
+      .profile-photo {
+        width: 100%;
+        height: 100%;
+      }
+
+      .logo {
+        width: 120px;
+        margin-top: 1.5px;
+      }
+
+      .signature {
+        margin-bottom: -1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="header text-center mx-4 border-dark">
+        <div class="d-flex align-items-center justify-content-center">
+          <h1 class="mb-0 fs-1 text-end">KYAMBOGO</h1>
+          <div style="width: 150px">
+            <img
+              src="<%= studentData.appURL %>/documents/templates/KYU/KYU-LOGO.png"
+              class="logo mb-1 mx-2"
+              alt="Logo"
+            />
+          </div>
+          <h1 class="mb-0 fs-1 text-start">UNIVERSITY</h1>
+        </div>
+      </div>
+      <div class="certificate-content">
+        <div class="d-flex align-items-center justify-content-center">
+          <h3 class="fw-normal mt-3">This is to certify that</h3>
+        </div>
+
+        <div class="px-3 text-center mt-3">
+          <div class="fw-bolder fs-1 studentName mb-4">
+            <%= studentData.name %>
+          </div>
+
+          <div>having fulfilled all the requirements of the</div>
+
+          <div>University and passed the prescribed Examinations,</div>
+          <div>has been awarded</div>
+
+          <div class="fw-bolder fs-1 my-2">DIPLOMA</div>
+
+          <div>in</div>
+
+          <div class="fs-1 fw-bold my-2">
+            <%= studentData.programme_title %>
+          </div>
+
+          <div>on</div>
+
+          <div class="fs-3 fw-bold my-2"><%- studentData.graduationDate %></div>
+          <div class="fs-1 fw-normal">
+            CLASS: <span class="fw-bold"><%- studentData.degreeClass %></span>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="d-flex justify-content-center">
+          <div class="text-center">
+            <img
+              src="<%= studentData.appURL %>/documents/templates/KYU/KYU-VC.png"
+              alt="AR-SIGN"
+              class="signature"
+              height="80"
+            />
+            <div class="m-0">______________</div>
+            <h2><i>Vice Chancellor</i></h2>
+          </div>
+          <div style="width: 150px">
+            <img
+              src="<%= studentData.appURL %>/documents/templates/KYU/KYU-SEAL.png"
+              class="logo mb-2 mt-4"
+              alt="Seal"
+            />
+            <div class="fs-6"><%= certificateID %></div>
+          </div>
+          <div class="text-center">
+            <img
+              src="<%= studentData.appURL %>/documents/templates/KYU/AR-sign-01.png"
+              alt="AR-SIGN"
+              class="signature text-center"
+              height="80"
+            />
+            <div class="m-0">_______________</div>
+            <h2><i>Academic Registrar</i></h2>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

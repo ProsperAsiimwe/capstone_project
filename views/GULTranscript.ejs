@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="<%= studentData.appURL %>/documents/templates/GUL/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="<%= studentData.appURL %>/documents/templates/GUL/css/Courgette.css"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+
+      body {
+        padding: 0;
+        font-size: 10px;
+        font-family:  'Trebuc','Times New Roman', sans-serif !important;
+        font-weight: 400;
+        line-height: 1.125;
+        color: #212529 !important;
+      }
+
+      @page 
+      { 
+          size: A4 portrait;
+          margin: 1cm; 
+      }
+
+      .page5 {
+        font-size: 8.5px !important;
+      }
+
+      .page4, .page3, .page2, .page1 {
+        font-size: 9px !important;
+      }
+
+      .text-capitalize {
+        text-transform: capitalize !important;
+      }
+
+      .first_page {
+        height: 100vh;
+      }
+
+      .header h1 {
+        font-size: 27.5px !important;
+        margin: 0;
+      }
+
+      .header h4 {
+        font-size: 14px !important;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .bg-lighter {
+        background-color: rgba(255, 255, 255, 0.61) !important;
+      }
+
+      .profile-photo {
+        height: 90px;
+      }
+
+      .logo {
+        width: 120px;
+        margin-top: 1.5px;
+      }
+      
+      .transcript-content5 {
+        min-height: 78vh !important;
+      }
+
+      .transcript-content4, .transcript-content3, .transcript-content2, .transcript-content1 {
+        min-height: 75.5vh !important;
+      }
+
+      .results5 {
+        font-size: 8.5px !important;
+      }
+
+      .results4, .serial-code, .results3, .results2, .results1 {
+        font-size: 9px !important;
+      }
+
+      .result-table {
+        border: 1px solid #3a3a3a !important;
+      }
+
+      .tr-border-b, .tr-border-bottom {
+        border-bottom: 1px solid #3a3a3a !important;
+      }
+
+      .tr-border-t, .border-top {
+        border-top: 1px solid #3a3a3a !important;
+      }
+
+      .tr-border-l, .border-start {
+        border-left: 1px solid #3a3a3a !important;
+      }
+
+      .tr-border-r, .border-end {
+        border-right: 1px solid #3a3a3a !important;
+      }
+
+      .results5 table th {
+        padding: 3px !important;
+        border-top: 1px solid #3a3a3a !important;
+        border-bottom: 1px solid #3a3a3a !important;
+      }
+
+      .results4 table th, .results3 table th, .results2 table th, .results1 table th {
+        padding: 3px !important;
+        border-top: 1px solid #3a3a3a !important;
+        border-bottom: 1px solid #3a3a3a !important;
+      }
+
+      .results5 table td {
+        padding-top: 1.9px;
+        padding-bottom: 1.9px;
+        line-height: 1;
+        font-weight: normal;
+        font-size: 9.5px !important;
+      }
+
+      .results4 table td, .results3 table td, .results2 table td, .results1 table td {
+        padding-top: 1.5px;
+        padding-bottom: 1.5px;
+        line-height: 0.9;
+        font-weight: normal;
+        font-size: 10px !important;
+      }
+
+      .dissertation td {
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+        font-weight: normal !important;
+      }
+
+      .note-text div,
+      .note div {
+        padding: 2px !important;
+        color: #2f3542;
+      }
+      .table-striped > tbody > tr:nth-child(2n + 1) > td,
+      .table-striped > tbody > tr:nth-child(2n + 1) > th {
+        background-color: rgb(239, 245, 253);
+      }
+      .cgpa {
+        color: #ff6600;
+      }
+      .signature {
+        /* position: absolute; */
+        margin-right: 2em;
+        margin-bottom: -1em;
+        /* margin-top: -2em; */
+      }
+      .d-inline {
+        display: flex !important;
+      }
+
+      .col-6:nth-child(odd) .card {
+        border-right: 1px solid #3a3a3a !important;
+      }
+      
+      .extra-table tr > td:nth-child(2n) {
+        border-right: none !important;
+      }
+
+
+      /* .card:nth-child(2n) {
+        border-right: none !important;
+      } */
+
+      .row-deck > .col,
+      .row-deck > [class*='col-'] {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .row-deck > .col .card,
+      .row-deck > [class*='col-'] .card {
+        flex: 1 1 auto;
+      }
+
+      .back-preview {
+        font-size: 14px !important;
+        min-height: 98vh !important;
+      }
+
+      .back-preview  table th {
+        padding: 4.5px !important;
+        border: none !important;
+        font-size: 15px !important;
+      }
+
+      .back-preview  table td {
+        padding-top: 4.5px !important;
+        padding-bottom: 4.5px !important;
+        line-height: 1;
+        font-weight: normal;
+        font-size: 13px !important;
+      }
+
+      .note4, .note3, note2 {
+        font-size: 10px !important;
+      }
+
+      .spaceTD2 tbody td, .spaceTD3 tbody td, .spaceTD4 tbody td {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+      }
+
+      .spaceTD5 tbody td {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+      }
+    </style>
+  </head>
+  <body class="page<%= Object.keys(studentData.studyYears).length %>">
+    <div class="first_page header mb-1">
+        <div class="row">
+          <div class="col-2">
+            <img
+              src="<%= studentData.appURL %>/documents/templates/GUL/GULULogo.jpeg"
+              class="logo"
+              alt="Logo"
+            />
+          </div>
+          <div class="col-6">
+            <h1 class="fw-bold m-0">GULU UNIVERSITY</h1>
+            <h4>P.O. Box 166 Gulu, Uganda</h4>
+            <h4 class="tel">Tel: +256-471-432921</h4>
+            <h4>Email: <a href="mailto:ar@gu.ac.ug">ar@gu.ac.ug</a></h4>
+            <h4>URL: <a href="www.gu.ac.ug">www.gu.ac.ug</a></h4>
+          </div>
+
+          <div class="col text-center">
+            <img
+              class="profile-photo img-thumbnail"
+              src="<%= studentData.avatar %>"
+              alt="Photo"
+            />
+            <div class="mt-2 fw-bold serial-code">
+              <%= studentData.student_number %>
+            </div>
+          </div>
+
+          <div class="col text-center">
+              <img src="<%= studentData.qrCode %>" height="90" alt="qrcode"/>
+              <div class="mt-2 fw-bold serial-code">
+                S/N: <%= serialNumber %>
+              </div>
+          </div>
+
+
+          <div class="col-12 text-center">
+            <h4>OFFICE OF THE ACADEMIC REGISTRAR</h4>
+          </div>
+        </div>
+
+      <div class="transcript-content<%= Object.keys(studentData.studyYears).length %>">
+        <table class="table table-borderless table-sm result-table w-100 mb-1">
+          <thead>
+              <tr class="tr-border-b">
+                <th colspan="2" class="p-1">
+                  <div class="text-center text-md">
+                    <h5 class="fw-bold mb-0">ACADEMIC TRANSCRIPT</h5>
+                    <div class="mb-0 text-md text-uppercase">(<%= studentData.degreeCategory %> PROGRAMMES)</div>
+                  </div>
+                </th>
+              </tr>
+              <tr class="tr-border-b">
+                <th colspan="2" class="p-1">
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <div class="mb-1">NAME: <span class="fw-normal"> <%= studentData.name %></span></div>
+                      <div class="mb-1">NATIONALITY: <span class="fw-normal"> <%= studentData.nationality %></span></div>
+                      <div class="mb-1">FACULTY: <span class="fw-normal"> <%= studentData.faculty_title %></span></div>
+                    </div>
+                    <div class="col-3">
+                      <div class="mb-1">SEX: <span class="fw-normal"> <%= studentData.gender %></span></div>
+                      <div class="mb-1">FIRST REG: <span class="fw-normal"> <%= studentData.first_registration %></span></div>
+                    </div>
+                    <div class="col-5">
+                      <div class="mb-1">DATE OF BIRTH: <span class="fw-normal"> <%= studentData.date_of_birth %></span></div>
+                      <div class="mb-1">REG. NO.: <span class="fw-normal"> <%= studentData.registration_number %></span></div>
+                      <div class="mb-1">PROGRAMME: <span class="fw-normal"> <%= studentData.programme_title %></span></div>
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            <tr class="border-bottom-0">
+              <th width="50%" class="fw-bold p-1 text-center" colspan="2">COURSES TAKEN AND GRADES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2" class="p-0 results<%= Object.keys(studentData.studyYears).length %>">
+                <% Object.keys(studentData.studyYears).forEach((studyYear, studyYearIndex) => { %>
+                  <div class="row row-deck g-0">
+                    <% if (studentData.studyYears[studyYear].length <= 2) { %> 
+                      <% studentData.studyYears[studyYear].forEach((semester, semIndex) => { %>
+                        <div class="col-6">
+                          <div class="card rounded-0 border-0 m-0">
+                            <table
+                              class="table table-sm table-borderless w-100 m-0"
+                            >
+                              <thead>
+                                <tr class="border-bottom">
+                                  <th colspan="4"><%= `${semester.programme_study_year} EXAMINATIONS - ${semester.semester}` %></th>
+                                </tr>
+                                <% if (studyYearIndex === 0) { %> 
+                                  <tr>
+                                    <th width="65">CODE</th>
+                                    <th>COURSE TITLE</th>
+                                    <th width="30">CU</th>
+                                    <th width="30">GD</th>
+                                  </tr>
+                                <% } %> 
+                              </thead>
+                              <tbody>
+                                <% semester.results.forEach((result) => { %>
+                                  <tr>
+                                    <td width="65"><%= result.course_unit_code %></td>
+                                    <td><%= result.course_unit_name %> <% if (result.remark === 'RT') { %> <strong>(RT)</strong> <% } %> <% if (result.is_audited_course === true || result.course_unit_category.includes('AUDITED') || result.is_audited_result) { %> <strong>(AC)</strong> <% } %> </td>
+                                    <td width="30"><%= result.credit_unit %> </td>
+                                    <td width="30"><%= result.grading_letter %> </td>
+                                  </tr>         
+                                <% }); %>
+
+                                <tr class="cgpa fw-bold">
+                                  <td class="fw-bold" colspan="2">
+                                    <% if (studyYearIndex === 0 && semIndex === 0) { %> 
+                                      Grade Point Average (GPA)               
+                                    <% } else if (studyYearIndex === 0 && semIndex === 1) { %> 
+                                      Cumulative Grade Point Average (CGPA)
+                                    <% } else { %>
+                                    CGPA                    
+                                    <% } %>      
+                                  </td>
+                                  <td colspan="2" class="text-end fw-bold pe-3">                           
+                                    <%= (studyYearIndex !== 0 || semIndex !== 0) ? semester.cgpa : semester.current_gpa  %>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      <% }); %> 
+                      <% } else { %>
+                        <div class="col-6 <%= (studentData.studyYears[studyYear][0].results !== (studentData.studyYears[studyYear][1].results.length + studentData.studyYears[studyYear][2].results.length ) ? 'spaceTD' + Object.keys(studentData.studyYears).length : '') %> ">
+                          <div class="card rounded-0 border-0 m-f">
+                            <table
+                              class="table table-sm table-borderless w-100 m-0"
+                            >
+                              <thead>
+                                <tr class="border-bottom">
+                                  <th colspan="4"><%= `${studentData.studyYears[studyYear][0].programme_study_year} EXAMINATIONS - ${studentData.studyYears[studyYear][0].semester}` %></th>
+                                </tr>
+                                <% if (studyYearIndex === 0) { %> 
+                                  <tr>
+                                    <th width="65">CODE</th>
+                                    <th>COURSE TITLE</th>
+                                    <th width="30">CU</th>
+                                    <th width="30">GD</th>
+                                  </tr>
+                                <% } %> 
+                              </thead>
+                              <tbody>
+                                <% studentData.studyYears[studyYear][0].results.forEach((result) => { %>
+                                  <tr>
+                                    <td width="65"><%= result.course_unit_code %></td>
+                                    <td><%= result.course_unit_name %> <% if (result.remark === 'RT') { %> <strong>(RT)</strong> <% } %> <% if (result.is_audited_course === true || result.course_unit_category.includes('AUDITED') || result.is_audited_result) { %> <strong>(AC)</strong> <% } %> </td>
+                                    <td width="30"><%= result.credit_unit %> </td>
+                                    <td width="30"><%= result.grading_letter %> </td>
+                                  </tr>         
+                                <% }); %>
+
+                                <tr class="cgpa fw-bold">
+                                  <td class="fw-bold" colspan="2">
+                                    <% if (studyYearIndex === 0) { %> 
+                                      Grade Point Average (GPA)               
+                                    <% } else { %>
+                                    CGPA                    
+                                    <% } %>      
+                                  </td>
+                                  <td colspan="2" class="text-end fw-bold pe-3">                           
+                                    <%= (studyYearIndex !== 0) ? studentData.studyYears[studyYear][0].cgpa : studentData.studyYears[studyYear][0].current_gpa  %>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="card rounded-0 border-0 m-0">
+                            <table
+                              class="table table-sm table-borderless w-100 m-0"
+                            >
+                              <thead>
+                                <tr class="border-bottom">
+                                  <th colspan="4"><%= `${studentData.studyYears[studyYear][1].programme_study_year} EXAMINATIONS - ${studentData.studyYears[studyYear][1].semester}` %></th>
+                                </tr>
+                                <% if (studyYearIndex === 0) { %> 
+                                  <tr>
+                                    <th width="65">CODE</th>
+                                    <th>COURSE TITLE</th>
+                                    <th width="30">CU</th>
+                                    <th width="30">GD</th>
+                                  </tr>
+                                <% } %> 
+                              </thead>
+                              <tbody>
+                                <% studentData.studyYears[studyYear][1].results.forEach((result) => { %>
+                                  <tr>
+                                    <td width="50"><%= result.course_unit_code %></td>
+                                    <td><%= result.course_unit_name %> <% if (result.remark === 'RT') { %> <strong>(RT)</strong> <% } %> <% if (result.is_audited_course === true || result.course_unit_category.includes('AUDITED') || result.is_audited_result) { %> <strong>(AC)</strong> <% } %> </td>
+                                    <td width="30"><%= result.credit_unit %> </td>
+                                    <td width="30"><%= result.grading_letter %> </td>
+                                  </tr>         
+                                <% }); %>
+
+                                <tr class="cgpa fw-bold">
+                                  <td class="fw-bold" colspan="2">
+                                    <%  if (studyYearIndex === 0) { %> 
+                                      Cumulative Grade Point Average (CGPA)
+                                    <% } else { %>
+                                    CGPA                    
+                                    <% } %>      
+                                  </td>
+                                  <td colspan="2" class="text-end fw-bold pe-3">                           
+                                    <%= studentData.studyYears[studyYear][1].cgpa %>
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <thead>
+                                <tr class="border-bottom">
+                                  <th colspan="4"><%= `${studentData.studyYears[studyYear][2].programme_study_year} EXAMINATIONS - ${studentData.studyYears[studyYear][2].semester}` %></th>
+                                </tr> 
+                              </thead>
+                              <tbody>
+                                <% studentData.studyYears[studyYear][2].results.forEach((result) => { %>
+                                  <tr>
+                                    <td width="65"><%= result.course_unit_code %></td>
+                                    <td><%= result.course_unit_name %> <% if (result.remark === 'RT') { %> <strong>(RT)</strong> <% } %> <% if (result.is_audited_course === true || result.course_unit_category.includes('AUDITED') || result.is_audited_result) { %> <strong>(AC)</strong> <% } %> </td>
+                                    <td width="30"><%= result.credit_unit %> </td>
+                                    <td width="30"><%= result.grading_letter %> </td>
+                                  </tr>         
+                                <% }); %>
+
+                                <tr class="cgpa fw-bold">
+                                  <td class="fw-bold" colspan="2">
+                                      CGPA
+                                  </td>
+                                  <td colspan="2" class="text-end fw-bold pe-3">                           
+                                    <%= studentData.studyYears[studyYear][2].cgpa %>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      <% } %> 
+                  </div>
+                <% }); %>
+              </td>
+            </tr>
+            <% if (studentData.has_dissertation === true &&
+                studentData.dissertation_title) { %>
+                <tr class="tr-border-t dissertation">
+                  <td>
+                      <strong class="me-1 fw-bold text-uppercase">Dissertation Title:</strong> "<%= studentData.dissertation_title %>"
+                  </td>
+                  <td>
+                      <strong class="me-1 fw-bold text-uppercase">Remark:</strong> "<%= studentData.dissertation_description %>"
+                    </td>
+                </tr>
+            <% }%>
+            <tr class="tr-border-t">
+              <td>
+                <div class="my-0">
+                  <strong>DATE OF COMPLETION:</strong> February <%= studentData.completionYear %>
+                </div>
+                <div class="mb-0">
+                  <strong>AWARD:</strong> <%= studentData.programme_title %>
+                </div>
+              </td>
+              <td>
+                <div class="mt-1">
+                <% if (studentData.is_classified === true) { %>  <strong class="fw-bold">CLASS OF AWARD:</strong> <span><%= studentData.resultClass %></span> <% } %>
+                <% if (studentData.is_classified === false)  { %>  <strong class="fw-bold">DATE OF GRADUATION:</strong> <span><%= studentData.graduation_date %></span> <% } %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    
+      <div class="row g-0">
+          <div class="col-7 note-text note<%= Object.keys(studentData.studyYears).length %>">
+            <div>
+              This transcript is <strong>NOT</strong> valid without an official Stamp.
+            </div>
+            <div>
+              Any alteration whatsoever renders the transcript invalid.
+            </div>
+            <div class="fw-bold">The Medium of Instruction is English.</div>
+            <div>
+              This transcript is verifiable online. Please follow the instructions at <a href="https://documents.gu.ac.ug/verify_transcript">https://documents.gu.ac.ug/verify_transcript</a>
+            </div>
+
+            <div class="mt-2 fw-bold text-lg">
+              <i>(See reverse for Key to Abbreviations)</i>
+            </div>
+          </div>
+          <div class="col-5 text-end">
+            <!-- <img src="<%= studentData.appURL %>/documents/templates/GUL/ARSignature.png" alt="AR-SIGN" class="signature" width="120"  /> -->
+            <div class="fw-bold mt-4">
+              __________________________________
+            </div>
+            <h6 class="fw-bold">Academic Registrar</h6>
+          </div>
+        </div>
+      <div class="text-center my-0">Page 1  of 2</div>
+    </div>
+
+
+    <div class="back-preview">
+      <div class="text-center mb-2 fw-bold">KEY TO ABBREVIATIONS</div>
+
+      <table class="table border-1 border-left-0 result-table table-bordered table-sm w-100 mb-2">
+        <thead class="fw-bold">
+          <tr class="tr-border-b">
+            <td colspan="6" width="50%" class="fw-bold">GRADING SYSTEM</td>
+            <td colspan="2" class="fw-bold">KEY TO ABBREVIATIONS</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" class="fw-bold text-uppercase">Grading up to 2015</td>
+            <td colspan="3" class="fw-bold border-end text-uppercase">Grading from 2016</td>
+            <td rowspan="15" colspan="2">
+              <table class="table table-sm table-borderless m-0">
+                <tbody>
+                  <tr>
+                    <td width="30%"><strong>AC</strong></td>
+                    <td>Audited Course</td>
+                  </tr>
+                  <tr>
+                    <td><strong>CGPA</strong></td>
+                    <td>Cumulative Grade Point Average</td>
+                  </tr>
+                  <tr>
+                    <td><strong>CU</strong></td>
+                    <td>Credit Unit</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FIRST REG.</strong></td>
+                    <td>Year of First Registration</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GD</strong></td>
+                    <td>Grade</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GPA</strong></td>
+                    <td>Grade Point Average</td>
+                  </tr>
+                  <tr>
+                    <td><strong>REG. NO.</strong></td>
+                    <td>The Student’s Registration Number</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RT</strong></td>
+                    <td>Result obtained after a Retake Examination</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><strong>NB:</strong> An Audited Course (AC) is not used in computing GPA or CGPA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Marks %</td>
+            <td width="50" class="fw-bold">Letter Grade</td>
+            <td width="50" class="fw-bold">Grade Point</td>
+            <td class="fw-bold">Marks %</td>
+            <td width="50" class="fw-bold">Letter Grade</td>
+            <td width="50" class="fw-bold border-end">Grade Point</td>
+          </tr>
+          <tr>
+            <td>80-100</td>
+            <td>A</td>
+            <td>5.0</td>
+            <td>80-100</td>
+            <td>A</td>
+            <td class="border-end">5.0</td>
+          </tr>
+          <tr>
+            <td>75-79.9</td>
+            <td>B+</td>
+            <td>4.5</td>
+            <td>75-79</td>
+            <td>B+</td>
+            <td class="border-end">4.5</td>
+          </tr>
+          <tr>
+            <td>70-74.9</td>
+            <td>B</td>
+            <td>4.0</td>
+            <td>70-74</td>
+            <td>B</td>
+            <td class="border-end">4.0</td>
+          </tr>
+          <tr>
+            <td>65-69.9</td>
+            <td>B-</td>
+            <td>3.5</td>
+            <td>65-69</td>
+            <td>C+</td>
+            <td>3.5</td>
+          </tr>
+          <tr>
+            <td>60-64.9</td>
+            <td>C+</td>
+            <td>3.0</td>
+            <td>60-64</td>
+            <td>C</td>
+            <td>3.0</td>
+          </tr>
+          <tr>
+            <td>55-59.9</td>
+            <td>C</td>
+            <td>2.5</td>
+            <td>55-59</td>
+            <td>D+</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>50-54.9</td>
+            <td>C-</td>
+            <td>2.0</td>
+            <td>50-54</td>
+            <td>D</td>
+            <td>2.0</td>
+          </tr>
+          <tr>
+            <td>45-49.9</td>
+            <td>D+</td>
+            <td>1.5</td>
+            <td>0-49</td>
+            <td>E</td>
+            <td>0.0</td>
+          </tr>
+          <tr>
+            <td>40-44.9</td>
+            <td>D</td>
+            <td>1.0</td>
+            <td />
+            <td >
+            <td />
+          </tr>
+          <tr>
+            <td>35-39.9</td>
+            <td>D-</td>
+            <td>0.5</td>
+            <td />
+            <td />
+            <td />
+          </tr>
+          <tr>
+            <td>Below 35</td>
+            <td>E</td>
+            <td>0.0</td>
+            <td />
+            <td />
+            <td />
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="text-center my-3 fw-bold">CLASSIFICATION OF AWARDS FOR UNDERGRADUATE DEGREES</div>
+      <table class="table border-1 border-left-0 result-table table-borderless table-sm w-100 mb-2">
+        <tbody>
+          <tr class="tr-border-b">
+            <td width="50%" class="fw-bold">CLASSIFICATION UP TO 2015</td>
+            <td class="fw-bold tr-border-l">CLASSIFICATION FROM 2016</td>
+          </tr>
+          <tr>
+            <td>
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%" class="fw-bold">CLASS</th>
+                    <th class="fw-bold">CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>First Class Honours</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class with Honours (Upper Division)</td>
+                    <td>3.60 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class with Honours (Lower Division)</td>
+                    <td>2.80 – 3.59</td>
+                  </tr>
+                  <tr>
+                    <td>Pass</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="tr-border-l">
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%">CLASS</th>
+                    <th>CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>First Class</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class (Upper Division)</td>
+                    <td>3.60 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class (Lower Division)</td>
+                    <td>2.80 – 3.59</td>
+                  </tr>
+                  <tr>
+                    <td>Third Class (Pass)</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="text-center my-3 fw-bold">CLASSIFICATION OF AWARDS FOR ORDINARY DIPLOMAS</div>
+      <table class="table border-1 border-left-0 result-table table-borderless table-sm w-100 mb-2">
+        <tbody>
+          <tr class="tr-border-b">
+            <td width="50%" class="fw-bold">CLASSIFICATION UP TO 2015</td>
+            <td class="fw-bold tr-border-l">CLASSIFICATION FROM 2016</td>
+          </tr>
+          <tr>
+            <td>
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%" class="fw-bold">CLASS</th>
+                    <th class="fw-bold">CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>First Class</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class (Upper)</td>
+                    <td>3.60 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Second Class (Lower)</td>
+                    <td>2.80 – 3.59</td>
+                  </tr>
+                  <tr>
+                    <td>Third Class</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="tr-border-l">
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%">CLASS</th>
+                    <th>CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Class I (Distinction)</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Class II (Credit) </td>
+                    <td>2.80 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Class III (Pass)</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="text-center my-3 fw-bold">CLASSIFICATION OF OTHER AWARDS</div>
+      <table class="table border-1 border-left-0 result-table table-borderless table-sm w-100 mb-2">
+        <tbody>
+          <tr class="tr-border-b">
+            <td width="50%" class="fw-bold">POSTGRADUATE DIPLOMAS</td>
+            <td class="fw-bold tr-border-l">ORDINARY CERTIFICATES</td>
+          </tr>
+          <tr>
+            <td>
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%" class="fw-bold">CLASS</th>
+                    <th class="fw-bold">CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>First</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Second</td>
+                    <td>2.80 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Third</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="tr-border-l">
+              <table class="table table-sm table-borderless m-0">
+                <thead>
+                  <tr>
+                    <th width="75%">CLASS</th>
+                    <th>CGPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Distinction</td>
+                    <td>4.40 – 5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Upper Credit</td>
+                    <td>3.60 – 4.39</td>
+                  </tr>
+                  <tr>
+                    <td>Lower Credit</td>
+                    <td>2.80 – 3.59</td>
+                  </tr>
+                  <tr>
+                    <td>Pass</td>
+                    <td>2.00 – 2.79</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mt-3">
+        <span class="fw-bold">NB:</span>	Doctorate degrees, Masters degrees, and MBChB degrees are not classified.
+      </div>
+    </div>
+    <div class="text-center mt-2">Page 2  of 2</div>
+  </body>
+</html>

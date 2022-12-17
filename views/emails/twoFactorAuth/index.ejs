@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title><%= app %></title>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../public/stylesheets/emails.css"
+      media="all"
+    />
+    <!--[if mso]>
+      <style type="text/css">
+        .f-fallback {
+          font-family: Arial, sans-serif;
+        }
+      </style>
+    <![endif]-->
+  </head>
+
+  <body>
+    <table
+      class="email-wrapper"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      role="presentation"
+    >
+      <tr>
+        <td align="center">
+          <table
+            class="email-content"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            role="presentation"
+          >
+            <td align="center">
+              <table
+                class="email-content"
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                role="presentation"
+              >
+                <tr>
+                  <td class="email-masthead text-uppercase">
+                    <a href="#" class="f-fallback email-masthead_name">
+                      <%= `${structure.institution_name} ${app}` %>
+                    </a>
+                  </td>
+                </tr>
+                <!-- Email Body -->
+                <tr>
+                  <td
+                    class="email-body"
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                  >
+                    <table
+                      class="email-body_inner"
+                      align="center"
+                      width="570"
+                      cellpadding="0"
+                      cellspacing="0"
+                      role="presentation"
+                    >
+                      <!-- Body content -->
+                      <tr>
+                        <td class="content-cell">
+                          <div class="f-fallback">
+                            <h1
+                              style="
+                                margin-top: 0;
+                                color: #333333;
+                                font-size: 22px;
+                                font-weight: bold;
+                                text-align: left;
+                              "
+                              align="left"
+                            >
+                              Dear <%= name %>!
+                            </h1>
+                            <p>
+                              You recently triggered an action protected by two
+                              factor authentication (2FA) for
+                              <strong class="text-uppercase">
+                                <%= `${structure.institution_name} ${app}` %>
+                              </strong>
+                              account. Use the 2FA token below to complete the
+                              action.
+                            </p>
+                            <!-- Action -->
+                            <table
+                              class="body-action"
+                              align="center"
+                              width="100%"
+                              cellpadding="0"
+                              cellspacing="0"
+                              role="presentation"
+                            >
+                              <tr>
+                                <td align="center">
+                                  <!-- Border based button
+            https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+                                  <table
+                                    width="100%"
+                                    border="0"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    role="presentation"
+                                  >
+                                    <tr>
+                                      <td
+                                        align="center"
+                                        style="text-align: center"
+                                      >
+                                        <h1><strong><%= token %></strong></h1>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                            <p>
+                              <strong
+                                >This 2FA token is only valid until <%= validFor
+                                %>.</strong
+                              >
+                            </p>
+                            <p></p>
+                            <p>
+                              For security, this request was received from <%=
+                              email %>. If you did not request such an action,
+                              please ignore this email or
+                              <a href="mailto:<%= `${process.env.INST_SUPPORT_EMAIL}` %>">
+                                contact support
+                              </a>
+                              if you have questions.
+                            </p>
+                            <p>Thanks, <br />The ACMIS Support Team</p>
+                            <!-- Sub copy -->
+                            <table class="body-sub" role="presentation">
+                              <tr>
+                                <td>
+                                  <p class="f-fallback sub">
+                                    If your 2FA token expires, you will be given
+                                    a new one upon re-initiating the said
+                                    action.
+                                  </p>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table
+                      class="email-footer"
+                      align="center"
+                      width="570"
+                      cellpadding="0"
+                      cellspacing="0"
+                      role="presentation"
+                    >
+                      <tr>
+                        <td class="content-cell" align="center">
+                          <p class="f-fallback sub align-center">
+                            &copy; <%= new Date().getFullYear() %>
+                            <strong class="text-uppercase">
+                              <%= `${structure.institution_name} ${app}`
+                              %></strong
+                            >. All rights reserved.
+                          </p>
+                          <p class="f-fallback sub align-center">
+                            &copy; ACMIS
+                            <!-- <br />1234 Street Rd. <br />Suite 1234 -->
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
