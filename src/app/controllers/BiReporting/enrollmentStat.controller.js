@@ -132,7 +132,7 @@ class EnrollmentStatController {
       enrollmentWorkSheet.getRow(1).height = 40;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }:- ENROLLMENT REPORT FOR :${
         semesterData.semester
       }-ALL CAMPUSES,ALL ACADEMIC UNITS ,All INTAKES(${

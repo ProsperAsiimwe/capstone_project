@@ -114,7 +114,7 @@ class ChangeProgrammeReportsController {
       rootSheet.getRow(1).height = 70;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ACADEMIC REGISTRAR'S DEPARTMENT 
        APPLICANTS CHANGE OF PROGRAMME/SUBJECT COMBINATIONS
       FOR  ACADEMIC YEAR: ${result[0].academic_year}`;

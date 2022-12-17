@@ -268,7 +268,7 @@ class DetailedReportStudentsController {
       rootSheet.getRow(1).height = 190;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ENROLLMENT AND REGISTRATION REPORT\n    ${
         programmeAcademicUnit.structure
       }: ${programmeAcademicUnit.academicUnitData.academic_unit_title}(${

@@ -2507,7 +2507,7 @@ class StudentController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS NOT ABLE TO BE PUSHED REPORT FOR \n SCHEME: ${
         findAdmissionScheme.scheme_name
       }, ACADEMIC YEAR: ${academicYear}, INTAKE: ${intake}, DEGREE CATEGORY: ${degreeCategory}.`;

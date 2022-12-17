@@ -142,7 +142,7 @@ class GraduateReportsController {
       rootSheet.getRow(1).height = 135;
 
       titleCell.value = `${
-        upperCase(institutionStructure.institution_name) || 'ACMIS'
+        upperCase(institutionStructure.institution_name) || 'TERP'
       }\nOFFICE OF THE ACADEMIC REGISTRAR\n GRADUATION STATISTICS REPORT\nCampus: All Campuses 
       \nAcademic Year: ${academicYear} \n
       `;

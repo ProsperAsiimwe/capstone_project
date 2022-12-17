@@ -1684,14 +1684,14 @@ class MigratedApplicantController {
               ) {
                 data.is_administratively_admitted = false;
 
-                if (!record['FORM ID (ACMIS APPLICANTS ONLY)']) {
+                if (!record['FORM ID (TERP APPLICANTS ONLY)']) {
                   throw new Error(
                     `Please provide the id of the form which the applicant: ${errName} filled while applying.`
                   );
                 } else {
                   data.running_admission_applicant_id =
                     await identifyRunningAdmissionApplicant(
-                      record['FORM ID (ACMIS APPLICANTS ONLY)'],
+                      record['FORM ID (TERP APPLICANTS ONLY)'],
                       data.entry_academic_year_id,
                       data.admission_scheme_id,
                       data.degree_category_id,

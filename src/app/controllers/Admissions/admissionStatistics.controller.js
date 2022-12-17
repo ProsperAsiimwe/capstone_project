@@ -150,7 +150,7 @@ class AdmissionStatisticsController {
       rootSheet.getRow(1).height = 135;
 
       titleCell.value = `${
-        upperCase(institutionStructure.institution_name) || 'ACMIS'
+        upperCase(institutionStructure.institution_name) || 'TERP'
       }\nOFFICE OF THE ACADEMIC REGISTRAR\n ADMISSION STATISTICS REPORT\nCampus: All Campuses / Intake: ${intake} 
       \nAcademic Year: ${academicYear} \nSponsorship: ${sponsorship}
       `;

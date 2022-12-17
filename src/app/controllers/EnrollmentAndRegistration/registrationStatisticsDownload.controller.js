@@ -80,7 +80,7 @@ class DownloadStatisticsController {
       rootSheet.getRow(1).height = 190;
 
       titleCell.value = `${
-        upperCase(institutionStructure.institution_name) || 'ACMIS'
+        upperCase(institutionStructure.institution_name) || 'TERP'
       }\nOFFICE OF THE ACADEMIC REGISTRAR
        ENROLLMENT SUMMARY REPORT \n
        \nCampus: ${campus} / Intake: ${intake} \nSemester: ${semester}

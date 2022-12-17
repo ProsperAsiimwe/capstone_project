@@ -310,7 +310,7 @@ class PujabApplicantController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${toUpper(
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       )} \n PUJAB APPLICANTS 
       ACADEMIC YEAR: ${metadataAcademicYear.metadata_value}
       PUJAB SECTION: ${findPujabSection.metadata_value}

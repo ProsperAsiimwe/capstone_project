@@ -193,7 +193,7 @@ class AdmissionSchemeReportsController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS' SUBJECTS 
       \n SCHEME: ${
         findRunningAdmission.admissionScheme.scheme_name
@@ -350,7 +350,7 @@ class AdmissionSchemeReportsController {
 
       if (context.programme_id) {
         titleCell.value = `${
-          toUpper(institutionStructure.institution_name) || 'ACMIS'
+          toUpper(institutionStructure.institution_name) || 'TERP'
         } \n OFFICE OF THE ACADEMIC REGISTRAR \n ADMITTED APPLICANTS${
           resultObject.faculty_title
         },\n ${resultObject.programme_title} -(${
@@ -368,7 +368,7 @@ class AdmissionSchemeReportsController {
         };
       } else {
         titleCell.value = `${
-          toUpper(institutionStructure.institution_name) || 'ACMIS'
+          toUpper(institutionStructure.institution_name) || 'TERP'
         } \n  OFFICE OF THE ACADEMIC REGISTRAR \n ADMITTED APPLICANTS,\n ACADEMIC YEAR: ${
           resultObject.entry_academic_year
         }\n SCHEME: ${resultObject.scheme_name || '.....'}\n DEGREE CATEGORY: ${

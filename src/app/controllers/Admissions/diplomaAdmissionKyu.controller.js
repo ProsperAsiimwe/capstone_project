@@ -144,7 +144,7 @@ class DiplomaAdmissionKyuController {
       admissionWorkSheet.getRow(1).height = 100;
       const titleCell = admissionWorkSheet.getCell('A1');
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }\n OFFICE OF THE ACADEMIC REGISTRAR\n${academicUnit.faculty_title}(${
         academicUnit.faculty_code
       }) \n ${findRunningAdmission.admissionScheme.scheme_name}\n ${

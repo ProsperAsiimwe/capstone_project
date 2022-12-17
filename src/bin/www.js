@@ -7,7 +7,7 @@
 
 const app = require('../index');
 
-const debug = require('debug')('acmis-api:server');
+const debug = require('debug')('terp-api:server');
 
 const http = require('http');
 

@@ -65,7 +65,7 @@ class DownLoadReportsController {
       rootSheet.getRow(1).height = 115;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       }\n Office of the Bursar  \n UNIVERSAL TRANSACTIONS REPORT  \n
       PAYMENTS \n FROM ${context.payments_from} TO ${context.payments_to}`;
 
@@ -199,7 +199,7 @@ class DownLoadReportsController {
       rootSheet.getRow(1).height = 115;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       }\n Office of the Bursar
       Account Collection report
       Collection From ${context.payments_from} TO ${context.payments_to}`;

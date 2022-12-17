@@ -1275,7 +1275,7 @@ class RunningAdmissionApplicantController {
       admissionWorkSheet.getRow(1).height = 100;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }\n OFFICE OF THE ACADEMIC REGISTRAR\n${academicUnit.faculty_title}(${
         academicUnit.faculty_code
       }) \n Applicants For POSTGRADUATE-AND-TAUGHT-PhDs\n ${
@@ -2627,7 +2627,7 @@ class RunningAdmissionApplicantController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS WEIGHTED ON RUNNING ADMISSION FROM ${moment(
         findRunningAdmission.admission_start_date
       ).format('MMMM Do YYYY')} TO ${moment(
@@ -2914,7 +2914,7 @@ class RunningAdmissionApplicantController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS SELECTED ON RUNNING ADMISSION FROM ${moment(
         findRunningAdmission.admission_start_date
       ).format('MMMM Do YYYY')} TO ${moment(
@@ -3252,7 +3252,7 @@ class RunningAdmissionApplicantController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS NOT SELECTED ON RUNNING ADMISSION FROM ${moment(
         findRunningAdmission.admission_start_date
       ).format('MMMM Do YYYY')} TO ${moment(
@@ -3738,7 +3738,7 @@ const getUNEBReport = async (req, res, category) => {
     const titleText = `${
       institutionStructure.institution_name
         ? toUpper(institutionStructure.institution_name)
-        : 'ACMIS'
+        : 'TERP'
     } \n UNEB ADMISSION REPORT FOR SCHEME: ${
       findRunningAdmission.admissionScheme.scheme_name
     } \n ACADEMIC YEAR: ${

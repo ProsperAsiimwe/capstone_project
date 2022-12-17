@@ -122,7 +122,7 @@ class DetailedReportsDownloadsController {
       rootSheet.getRow(1).height = 40;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       } || ENROLLMENT AND REGISTRATION REPORT FOR: ${
         data.enrolledStudents[0].semester
       } ->INTAKE: ${data.enrolledStudents[0].intake} (${
@@ -351,7 +351,7 @@ class DetailedReportsDownloadsController {
       rootSheet.getRow(1).height = 74;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ENROLLMENT AND REGISTRATION REPORT \nACADEMIC YEAR ${
         data.enrolledStudents[0].academic_year
       } \nSEMESTER: ${data.enrolledStudents[0].semester}\nINTAKE: ${
@@ -543,7 +543,7 @@ class DetailedReportsDownloadsController {
       rootSheet.getRow(1).height = 74;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ENROLLMENT AND REGISTRATION REPORT \nACADEMIC YEAR ${
         data.enrolledStudents[0].academic_year
       } \nSEMESTER: ${data.enrolledStudents[0].semester}\nINTAKE: ${

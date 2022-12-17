@@ -304,7 +304,7 @@ class DetailedReportController {
       resultsWorkSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n${campus}\n ${
         findProgramme.programme_title
       } \n${studyYear} - ${semester} \n${intake} - INTAKE`;

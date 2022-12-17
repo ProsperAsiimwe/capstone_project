@@ -1,7 +1,7 @@
 {
-  "name": "acmis-api",
+  "name": "terp-api",
   "version": "1.0.0",
-  "description": "ACMIS application APIs",
+  "description": "TERP application APIs",
   "main": "./src/index.js",
   "private": true,
   "bin": {

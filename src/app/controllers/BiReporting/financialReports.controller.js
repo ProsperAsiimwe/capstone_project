@@ -318,7 +318,7 @@ class FinancialReportController {
       financialYearWorkSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }:- FINANCIAL YEAR REPORT FOR :${context.payments_from} to ${
         context.payments_to
       }\n ${
@@ -1044,7 +1044,7 @@ class FinancialReportController {
       enrollmentWorkSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }:- TRANSACTION REPORT FOR :${newContext.payments_from} to ${
         newContext.payments_to
       }-ALL CAMPUSES,ALL ACADEMIC UNITS ,All INTAKES`;
@@ -1285,7 +1285,7 @@ class FinancialReportController {
       enrollmentWorkSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        toUpper(institutionStructure.institution_name) || 'ACMIS'
+        toUpper(institutionStructure.institution_name) || 'TERP'
       }:- PROGRAMME TRANSACTIONS REPORT FOR :${newContext.payments_from} to ${
         newContext.payments_to
       }-(${programmeContext.programme_code})`;

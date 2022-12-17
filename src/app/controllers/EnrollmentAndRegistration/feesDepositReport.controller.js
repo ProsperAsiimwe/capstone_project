@@ -248,7 +248,7 @@ class FeesDepositsReportsController {
       rootSheet.getRow(1).height = 190;
 
       titleCell.value = `${
-        upperCase(institutionStructure.institution_name) || 'ACMIS'
+        upperCase(institutionStructure.institution_name) || 'TERP'
       }\nOFFICE OF THE BURSAR
       STUDENTS' FEES DEPOSITS REPORT \n
        ${programmeAcademicUnit.structure}: ${

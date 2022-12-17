@@ -38,7 +38,7 @@ const prefix = '/api/v1';
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'ACMIS API DOCUMENTATION', version: '1.0.0' });
+  res.render('index', { title: 'TERP API DOCUMENTATION', version: '1.0.0' });
 });
 
 /* GET home page. */

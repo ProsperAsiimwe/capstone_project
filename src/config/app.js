@@ -26,8 +26,8 @@ module.exports = Object.freeze({
   APPLICATION_PORTAL_URL: process.env.APPLICATION_PORTAL_URL || '',
   PAYMENT_PORTAL_URL: process.env.PAYMENT_PORTAL_URL || '',
   STUDENT_PORTAL_URL: process.env.STUDENT_PORTAL_URL || '',
-  INSTITUTION_NAME: process.env.INSTITUTION_NAME || 'ACMIS',
-  INSTITUTION_SHORT_CODE: process.env.INSTITUTION_SHORT_CODE || 'ACMIS',
+  INSTITUTION_NAME: process.env.INSTITUTION_NAME || 'TERP',
+  INSTITUTION_SHORT_CODE: process.env.INSTITUTION_SHORT_CODE || 'TERP',
   DOCUMENT_VERIFICATION_LINK: process.env.DOCUMENT_VERIFICATION_LINK || '',
   DOCUMENTS_STUDENT_PHOTO_LINK: process.env.DOCUMENTS_STUDENT_PHOTO_LINK || '',
 
@@ -45,13 +45,13 @@ module.exports = Object.freeze({
     process.env.STUDENT_NUMBER_INSTITUTION_CODE || '000',
 
   INSTITUTION_EMAIL_EXTENSION:
-    process.env.INSTITUTION_EMAIL_EXTENSION || '@acmis.ac.ug',
+    process.env.INSTITUTION_EMAIL_EXTENSION || '@terp.ac.ug',
 
   // Default values of URA Data Integrations
   TAX_HEAD_CODE: process.env.TAX_HEAD_CODE || '',
   BRIDGE_BASE_URL: process.env.BRIDGE_BASE_URL || 'http://localhost:5000',
   URA_PORTAL_BASE_URL:
-    process.env.URA_PORTAL_BASE_URL || 'http://uraportal.acmis.ac.ug',
+    process.env.URA_PORTAL_BASE_URL || 'http://uraportal.terp.ac.ug',
   URA_ONLINE_PAYMENT_REDIRECT: process.env.URA_ONLINE_PAYMENT_REDIRECT,
   PAYMENT_REFERENCE_EXPIRES_IN: process.env.PAYMENT_REFERENCE_EXPIRES_IN || 2,
   BULK_PAYMENT_REFERENCE_EXPIRES_IN:
@@ -63,17 +63,17 @@ module.exports = Object.freeze({
   SPEEDA_SENDER_ID: process.env.SPEEDA_SENDER_ID || 'BULKSMS',
   SPEEDA_SMS_TYPE: process.env.SPEEDA_SMS_TYPE || 'T',
   SPEEDA_ENCODING: process.env.SPEEDA_ENCODING || 'T',
-  SPEEDA_BRAND: process.env.SPEEDA_BRAND || 'ACMIS',
+  SPEEDA_BRAND: process.env.SPEEDA_BRAND || 'TERP',
   SPEEDA_BASE_URL:
     process.env.SPEEDA_BASE_URL || 'http://apidocs.speedamobile.com/api',
 
-  // Default values for ACMIS Email Gateway
-  SMTP_HOST: process.env.SMTP_HOST || 'mail.acmis.ac.ug',
+  // Default values for TERP Email Gateway
+  SMTP_HOST: process.env.SMTP_HOST || 'mail.terp.ac.ug',
   SMTP_PORT: process.env.SMTP_PORT || 465,
-  SMTP_USER_NAME: process.env.SMTP_USER_NAME || 'smtp@acmis.ac.ug',
+  SMTP_USER_NAME: process.env.SMTP_USER_NAME || 'smtp@terp.ac.ug',
   SMTP_PASSWORD: process.env.SMTP_PASSWORD || 'Mw6a6b_4',
   SMTP_FROM:
-    process.env.SMTP_FROM || `ACMIS UNIVERSITY <acmis.university@acmis.ac.ug>`,
+    process.env.SMTP_FROM || `TERP UNIVERSITY <terp.university@terp.ac.ug>`,
   SECRET: process.env.HASH_SECRET,
   ACMIS_TERMS_AND_CONDITIONS_BASE_URL: 'https://staff.testing.aims.ac.ug/',
 

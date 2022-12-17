@@ -322,7 +322,7 @@ class ChartOfAccountController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ${
         context.transaction_category
       } PAYMENT TRANSACTIONS REPORT \n FROM ${context.payments_from} TO ${

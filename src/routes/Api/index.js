@@ -8,6 +8,6 @@ const courseRoutes = require('./courseRoute');
 
 clientRouter.use('/courses', [loginRequired], courseRoutes);
 
-// clientRouter.use('/acmis', [apiAccessRequired], universityRoutes);
+// clientRouter.use('/terp', [apiAccessRequired], universityRoutes);
 
 module.exports = clientRouter;

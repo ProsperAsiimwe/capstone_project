@@ -1810,7 +1810,7 @@ class GraduationListController {
       createGraduationListSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ${campus} \n ${findProgramme.programme_code}: ${
         findProgramme.programme_title
       } - GRADUATION LIST DRAFT \n ACADEMIC YEAR - ${academicYear} \n ${intake} - INTAKE`;
@@ -2051,7 +2051,7 @@ class GraduationListController {
       createGraduationListSheet.getRow(1).height = 60;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n ${campus} \n ${findProgramme.programme_code}: ${
         findProgramme.programme_title
       } - FINAL GRADUATION LIST  \n ACADEMIC YEAR - ${academicYear} \n ${intake} - INTAKE`;

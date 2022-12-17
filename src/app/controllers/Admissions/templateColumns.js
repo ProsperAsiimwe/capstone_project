@@ -397,7 +397,7 @@ const admitApplicantsColumns = [
   },
   // D
   {
-    header: 'FORM ID (ACMIS APPLICANTS ONLY)',
+    header: 'FORM ID (TERP APPLICANTS ONLY)',
     key: 'form_id',
     style: { numFmt: '@' },
     width: 35,
@@ -589,7 +589,7 @@ const selectedApplicantColumns = [
   },
   // D
   {
-    header: 'FORM ID (ACMIS APPLICANTS ONLY)',
+    header: 'FORM ID (TERP APPLICANTS ONLY)',
     key: 'form_id',
     style: { numFmt: '@' },
     width: 35,

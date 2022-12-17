@@ -119,7 +119,7 @@ const blockCollegesExcept = async (programmeId, userEmail, academicYearId) => {
       'denis.mbabazi@mak.ac.ug',
       'ruth.iteu@mak.ac.ug',
       'josephine.namubiru@mak.ac.ug',
-      'support@acmis.ac.ug',
+      'support@terp.ac.ug',
     ];
 
     if (!academicYearId && !includes(allowedUsers, userEmail)) {

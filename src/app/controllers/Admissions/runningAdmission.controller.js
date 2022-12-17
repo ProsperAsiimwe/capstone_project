@@ -354,7 +354,7 @@ class RunningAdmissionController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n APPLICANTS SELECTED ON RUNNING ADMISSION FROM ${moment(
         findRunningAdmission.admission_start_date
       ).format('MMMM Do YYYY')} TO ${moment(

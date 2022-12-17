@@ -12,12 +12,12 @@ const submitController = new EmisSubmitController();
 
 const emisController = new EmisIntegrationController();
 
-// acmis
-courseRouter.get('/acmis-sponsors', emisController.universitySponsors);
-courseRouter.get('/acmis-campuses', emisController.universityCampuses);
-courseRouter.get('/acmis-schemes', emisController.universityScheme);
-courseRouter.get('/acmis-study-levels', emisController.universityStudyLevel);
-courseRouter.get('/acmis-programmes', emisController.universityProgramme);
+// terp
+courseRouter.get('/terp-sponsors', emisController.universitySponsors);
+courseRouter.get('/terp-campuses', emisController.universityCampuses);
+courseRouter.get('/terp-schemes', emisController.universityScheme);
+courseRouter.get('/terp-study-levels', emisController.universityStudyLevel);
+courseRouter.get('/terp-programmes', emisController.universityProgramme);
 
 // emis
 

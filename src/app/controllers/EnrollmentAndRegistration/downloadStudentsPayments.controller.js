@@ -111,7 +111,7 @@ class DownloadStudentsPaymentController {
       rootSheet.getRow(1).height = 100;
 
       titleCell.value = `${
-        upperCase(institutionStructure.institution_name) || 'ACMIS'
+        upperCase(institutionStructure.institution_name) || 'TERP'
       }\nOFFICE OF THE BURSAR
       STUDENTS' PAYMENTS AND TRANSACTIONS REPORT \nFOR: ${academicYear} - ${semester}\n${
         toUpper(campusName) === 'ALL' ? 'ALL CAMPUSES' : campusName

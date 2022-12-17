@@ -145,7 +145,7 @@ module.exports = ClientController;
 const generateSecreteFunction = function (data) {
   const randomBytes = crypto.randomBytes(15).toString('hex');
 
-  const result = data.code.toUpperCase() + lowerCase('ACMIS') + randomBytes;
+  const result = data.code.toUpperCase() + lowerCase('TERP') + randomBytes;
 
   return result;
 };

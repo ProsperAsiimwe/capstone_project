@@ -698,7 +698,7 @@ class BatchController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n RESULTS FOR BATCH ${batchNumber}.`;
 
       titleCell.alignment = {

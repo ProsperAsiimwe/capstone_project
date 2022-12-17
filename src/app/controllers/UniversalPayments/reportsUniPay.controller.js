@@ -185,7 +185,7 @@ class ReportsUniPayController {
       rootSheet.getRow(1).height = 65;
 
       titleCell.value = `${
-        institutionStructure.institution_name || 'ACMIS'
+        institutionStructure.institution_name || 'TERP'
       } \n PAYMENT TRANSACTION ${context.report_category} REPORT FOR ${
         context.transaction_category
       } PAYMENTS \n FROM ${context.payments_from} TO ${

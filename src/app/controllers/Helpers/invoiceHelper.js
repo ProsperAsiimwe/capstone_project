@@ -2296,7 +2296,7 @@ const generatePaymentReferenceByDeAllocatedInvoice = async function (
 
     const payload = {
       system_prn: referenceNumber,
-      ura_prn: `ACMIS-${referenceNumber}`,
+      ura_prn: `TERP-${referenceNumber}`,
       search_code: `N/A`,
       tax_payer_name: `N/A`,
       payment_status: `T`,
